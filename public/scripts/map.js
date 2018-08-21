@@ -30,11 +30,11 @@ $(document).ready(function(){
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
     newIcon = L.icon({
-        iconUrl: '/public/assets/marker-icon-2x-00179c4c1ee830d3a108412ae0d294f55776cfeb085c60129a39aa6fc4ae2528.png',
+        iconUrl: '/assets/marker-icon-2x-00179c4c1ee830d3a108412ae0d294f55776cfeb085c60129a39aa6fc4ae2528.png',
         iconSize: [38, 70], // 95
         iconAnchor: [22, 70], // 94
         popupAnchor: [-3, -76],
-        shadowUrl: '/public/assets/markers-shadow-8703a2262710f5e3d29e65d2acdf90d6512e159e119d27b8234731d8a6208a20.png',
+        shadowUrl: '/assets/markers-shadow-8703a2262710f5e3d29e65d2acdf90d6512e159e119d27b8234731d8a6208a20.png',
         shadowSize: [68, 95],
         shadowAnchor: [22, 94]
     });
