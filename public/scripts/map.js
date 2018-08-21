@@ -54,6 +54,7 @@ function onMapClick(e){
     //     //alert(data);
     // });
 
+    alert(e.latlng.lat);
     $('#rent_X').val(e.latlng.lat);
     $('#rent_Y').val(e.latlng.lng);
     if(is_marked)
