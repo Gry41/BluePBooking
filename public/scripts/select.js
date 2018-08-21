@@ -1,4 +1,4 @@
 $(document).ready(function(){
-    $('select').material_select();
-});
+    $('select').formSelect();
+  });
         
