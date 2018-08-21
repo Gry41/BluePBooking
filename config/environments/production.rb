@@ -94,13 +94,12 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address:              'smtp.gmail.com',
-    port:                 587,
-    domain:               'gmail.com',
-    user_name:            'bluepbooking',
-    password:             'BPB606^)^',
-    authentication:       'plain',
-    enable_starttls_auto: true  
+    host: smtp.gmail.com
+    port: 587 
+    protocol: tls
+    user: bluepbooking@gmail.com
+    password:  BPB606^)^
+
   }
   config.action_mailer.default_url_options = { :host => 'https://mighty-headland-81697.herokuapp.com' }
   
