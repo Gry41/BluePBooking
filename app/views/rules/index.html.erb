@@ -1,0 +1,83 @@
+<div class="container">
+    <h5 style:"font-weight: bold">Rules</h5>
+    <% first = true%>
+    <% id = 0 %>
+    <% @rules.each do |rule| %>
+    <% if first%>
+
+        <p><%= rule.name %></p>
+        <div class="row">
+          <div class="col s10"></div>
+          <% if user_signed_in? %>
+          <div class="col s12">  <%= link_to 'Edit', edit_rule_path(rule)  , class:"waves-effect waves-light btn right", id: "btn-small"%>
+          </div>
+          <% end%>
+        </div>
+              <ul class="collection" >
+          <% first = false%>
+<% else%>
+    <li class="collection-item avatar">
+        <%= image_tag '/li.png', class:"circle", style:"height:10px; width:10px"%>
+        
+      <div class="row">
+        <div class="col s11"><%= rule.name %></div></div>
+        <% if user_signed_in? %>
+      <div class="secondary-content">
+          <%= link_to 'Edit', edit_rule_path(rule) , class:"waves-effect waves-light btn", id: "btn-small"%>
+          <!--<%= link_to 'Destroy', rule, method: :delete, data: { confirm: 'Are you sure?' }, class:"waves-effect waves-light btn", id: "btn-small" %>
+          -->
+          <% id_modal = "modal"+id.to_s%>
+          <button data-target=<%=id_modal%> class="btn modal-trigger" id="btn-small">Destroy</button>
+          
+          <div id=<%=id_modal%> class="modal">
+              <div class="modal-content">
+                <h4>Delete Confirmation</h4>
+                <p>Are you sure?</p>
+              </div>
+              <div class="modal-footer">
+                <% href = "/rules/"+ rule.id.to_s%>
+                <a  data-method="delete" class="waves-effect waves-green btn-flat" href=<%=href%>>Yes</a>
+                <a class=" modal-action modal-close waves-effect waves-green btn-flat">No</a>
+              </div>
+            </div>
+          <%id += 1%>
+    </div>
+    <% end%>
+
+      
+    </li>
+<%end%>
+    <% end %>
+  </ul>
+  <% if user_signed_in? %>
+<%= link_to 'New Rule', new_rule_path, class:"waves-effect waves-light btn" %>
+<%end %>
+<br>
+<br>
+<br>
+<br>
+<br>
+</div>
+
+<script>
+    $(document).ready(function(){
+      // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+      //$('.modal-trigger').leanModal();
+      $('.modal').modal();
+    });
+</script>
+
+  <style>
+  .collection, .collapsible-header, .collapsible-body, .collapsible, ul.collapsible>li 
+{
+  margin: 0!important;;
+  padding: 0!important;
+  border: 0!important;
+  box-shadow: none!important;
+  background: #fff;
+}
+.right{
+  align-content: right;
+  margin-right: 15px;
+}
+</style>

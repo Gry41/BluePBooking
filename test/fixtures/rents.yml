@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  address: MyString
+  rooms: 1
+  bathrooms: 1
+  dbl_price: 9.99
+  tpl_price: 9.99
+  qpl_price: MyString
+  home: MyString
+  X: 9.99
+  'Y': 9.99
+  features: MyString
+  tripadvisor: false
+
+two:
+  name: MyString
+  address: MyString
+  rooms: 1
+  bathrooms: 1
+  dbl_price: 9.99
+  tpl_price: 9.99
+  qpl_price: MyString
+  home: MyString
+  X: 9.99
+  'Y': 9.99
+  features: MyString
+  tripadvisor: false

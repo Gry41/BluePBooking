@@ -1,0 +1,244 @@
+
+
+<%= form_with(model: rent, local: true,:html=>{ :multipart => true }) do |form| %>
+  <% if rent.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(rent.errors.count, "error") %> prohibited this rent from being saved:</h2>
+
+      <ul>
+      <% rent.errors.full_messages.each do |message| %>
+        <li>
+          <%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <br>
+  <br> 
+<div class="row">
+  <div class="col s1"></div>
+  <div class="col s5">
+
+    <div class="card">
+        <br>
+      <div class="container">
+          <h6>Introduzca los datos del alojamiento</h6>
+        
+        <div class="row">
+          <div class="input-field">
+            <%= form.text_field :name, id: :rent_name %>
+            <label>Name</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="field">
+              <%= form.text_field :address, id: :rent_address, placeholder: "Adress" %>
+          </div>          
+        </div>
+        <div class="row">
+          <label>Idioma con el que se comunica:</label>
+          <div class="field">
+            
+          <% i = 1 %>
+          <% Language.all.each do |single|%>
+          <% st = "rent_language_ids_"+ i.to_s %>
+          <div class="col s6">
+          <input id=<%=st %> name="rent[language_ids][]" type="checkbox" value=<%=i%> class="filled-in" />
+          <label for=<%=st%>><%= single.name%></label>
+          <% i = i+1 %> 
+          </div>
+         <% end%>
+          </div>        
+        </div>
+        <div class="row">
+          <div class="field">
+            <%= form.text_field :rooms, id: :rent_rooms, placeholder:"Rooms" %>
+          </div>                  
+        </div>
+      
+        <div class="row">
+          <div class="field">
+            <%= form.text_field :bathrooms, id: :rent_bathrooms, placeholder:"Bathooms" %>
+          </div>                  
+        </div>
+      
+        <div class="row">
+          <label>Precios:</label>
+        </div>
+        <div class="row">
+          <div class="col s1"><br><label>DBL:</label></div>
+          <div class="col s3">
+              <div class="field">
+                  <%= form.text_field :dbl_price, id: :rent_dbl_price %>
+              </div>
+          </div>
+          <div class="col s1"><br><label>TPL:</label></div>
+          <div class="col s3">
+            <div class="field">
+              <%= form.text_field :tpl_price, id: :rent_tpl_price %>
+            </div>
+          </div>
+          <div class="col s1"><br><label>QPL:</label></div>
+          <div class="col s3">
+              <div class="field">
+                  <%= form.text_field :qpl_price, id: :rent_qpl_price %>
+              </div>
+          </div>
+        </div> 
+        <div class="row">
+          <label>Servicios:</label>
+          <div class="field">
+          <% i = 1 %>
+          <% Service.all.each do |single|%>
+          <% st = "rent_service_ids_"+ i.to_s %>
+          <div class="col s12">
+          <input id=<%=st %> name="rent[service_ids][]" type="checkbox" value=<%=i%> class="filled-in"/>
+          <label for=<%=st%>><%= single.name%></label>
+          <% i = i+1 %> 
+          </div>
+         <% end%>
+          </div>
+        </div>
+        <div class="row">
+          <label>Facilidades:</label>
+        </div>
+        <div class="row">
+         
+          <% i = 1 %>
+          <% Facility.all.each do |single|%>
+          <% st = "rent_facility_ids_"+ i.to_s %>
+          <div class="col s4">
+          <input id=<%=st %> name="rent[facility_ids][]" type="checkbox" value=<%=i%> class="filled-in" />
+          <label for=<%=st%>><%= single.name%></label>
+          <% i = i+1 %> 
+          </div>
+         <% end%>
+          
+
+        </div>
+        <div class="row">
+         
+            <label>Location:</label>
+          <div class="input-field">
+            <select name="rent[location_id]">
+                <%Location.all.each do |single|%>
+                <option value=<%=single.id%>><%=single.name%></option>
+              <% end%>
+              </select>
+            </div> 
+        </div>
+        
+        <div class="input-field">
+           
+            <%= form.text_field :features, id: :rent_features %>
+            <label class="active" for= <%=:rent_features%>>Caracteristicas del alojamiento</label>
+          </div>
+        
+          <div class="field">
+              <%= form.check_box :tripadvisor, id: :rent_tripadvisor, class:"filled-in" %>
+            <%= form.label :tripadvisor %>
+            
+          </div>
+          
+               
+      </div>
+      <br> 
+    </div>          
+  </div>
+  
+  <div class="col s5">
+    <div class="card">
+      <div class="container">
+        <br>
+          <h6>Introduzca los datos para home</h6>
+          <div class="row">
+              
+                <div class="field">             
+                  <%= form.text_field :home, id: :rent_home, placeholder:"Home" %>
+          </div> 
+          <br>
+          <br>
+      </div>
+      
+    </div>
+      
+  </div>
+  <strong>Add Photo:</strong>
+  <div class="btn-floating btn-large waves-effect waves-light" style="font-size:25px;" id="btn-circular">+</div>
+   <%= file_field_tag "image[]", type: :file, multiple:true , style:"display:none;"%>
+ 
+<!--   
+  <label >Add Photo</label>
+  <span class="btn-floating btn-file">
+      </span> -->
+</div>
+</div>
+
+
+
+
+
+
+  <div class="field" style="display:none">
+    <%= form.label :X %>
+    <%= form.text_field :X, id: :rent_X %>
+  </div>
+
+  <div class="field" style="display:none">
+    <%= form.label :Y %>
+    <%= form.text_field :Y, id: :rent_Y %>
+  </div>
+
+  
+
+
+  <%= @rentpar %>
+ 
+ 
+<style>
+.btn-file {
+    position: relative;
+    overflow: hidden;
+    
+}
+
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+    border-radius: 50%;
+}
+</style>
+  <center>
+  <div id='map' style="width: 1000px; height: 500px"></div>
+</center>
+<br>
+<div class="row">
+    <div class="col s9"></div>
+    <div class="col s2">
+      <div class="actions">
+        <%= form.submit class:"waves-effect waves-light btn"%>
+      </div>
+    </div>
+    <br>
+    <br>
+    <br>
+  </div>
+  <% end %>
+  <script src="/scripts/map.js"></script>
+  <script src="/scripts/select.js"></script>
+<script>
+  $("#btn-circular").click(function () {
+    $("#image_").trigger('click');
+});
+</script>

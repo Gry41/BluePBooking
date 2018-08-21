@@ -1,0 +1,33 @@
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col s12 m6">
+      
+          <div class="card">
+<div class="container">
+  
+<%= form_with(model: facility, local: true) do |form| %>
+  <% if facility.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(facility.errors.count, "error") %> prohibited this facility from being saved:</h2>
+
+      <ul>
+      <% facility.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<br>
+  <div class="input-field">
+   
+    <%= form.text_field :name, id: "facility_name"%>
+    <label for="facility_name">Facility</label>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class:"waves-effect waves-ligth btn"%>
+  </div>
+  <br>
+<% end %>
+</div></div></div></div></div>

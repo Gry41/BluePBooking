@@ -1,0 +1,71 @@
+<div class="container">
+
+
+
+
+  <%i=0%>
+    <% @contacts.each do |contact| %>
+      <div class="row">
+        <%if i==0%>
+        <h5>Contact Us</h5>
+        <p><%=contact.name%></p>
+        <% if user_signed_in? %>
+        <div class="col s12" align="rigth">
+                <%= link_to 'Edit', edit_contact_path(contact), class:"waves-effect waves-light btn right", id:"btn-small" %>
+            </div>
+            <% end %>
+      <%elsif i==1%>
+        <div class="col s4 m1">
+            <%= image_tag 'face.png', style:"height:40px; width:40px"%>
+        </div>
+        <div class="col s6 m5">
+            <a href=<%="http://www."+contact.name%>><%="http://www."+contact.name%></a>
+        </div>
+        <div class="col s2 m6">
+            <% if user_signed_in? %>
+            <%= link_to 'Edit', edit_contact_path(contact), class:"waves-effect waves-light btn", id:"btn-small" %>
+        <% end %> </div>
+
+      <%elsif i==2%>
+        <div class="col s4 m1">
+            <%= image_tag 'insta.png', style:"height:40px; width:40px"%>
+        </div>
+        <div class="col s6 m5">
+        <a href=<%="http://www."+contact.name%>><%="http://www."+contact.name%></a>
+        </div>
+        <div class="col s2 m6">
+            <% if user_signed_in? %>
+            <%= link_to 'Edit', edit_contact_path(contact), class:"waves-effect waves-light btn", id:"btn-small" %>
+        <% end %>
+          </div>
+      <%else%>
+      <div class="col s4 m1">
+          
+      </div>
+      <div class="col s6 m5">
+      <p><%=contact.name%></p>
+      </div>
+      <div class="col s2 m6">
+          <%= link_to 'Edit', edit_contact_path(contact), class:"waves-effect waves-light btn", id:"btn-small" %>
+      </div>
+        <%end%>
+        
+        
+       
+      </div>
+      <%i = i+1%>
+    <% end %>
+
+
+
+<br>
+<%if @contacts.count<3%>
+<%= link_to 'New Contact', new_contact_path %>
+    <%end%>
+    </div>
+
+    <style>
+    .right{
+  align-content: right;
+  margin-right: 15px;
+}</style>

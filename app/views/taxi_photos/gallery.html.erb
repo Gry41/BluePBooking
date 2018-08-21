@@ -1,0 +1,178 @@
+<div class="carousel carousel-slider center" data-indicators="true">
+    
+    <% if @pictures.count > 0 %>
+    <div class="carousel-item" id="div_relative" href="#one!">
+        <%= image_tag @pictures.first.image.url,id: "image100", class:"image responsive"%>
+    </div>
+    <% else %>
+    
+    <div class="carousel-item" id="div_relative" href="#one!">
+        <%= image_tag "/assets/user.png",id: "image100", class:"image responsive"%>
+    </div>
+    
+    <% end %>
+
+    <div class="carousel-fixed-item center middle-indicator">
+        <div class="left">
+        <a href="Previo" class="movePrevCarousel middle-indicator-text waves-effect waves-light content-indicator"><i class="material-icons left  middle-indicator-text">chevron_left</i></a>
+        </div>
+        
+        <div class="right">
+        <a href="Siguiente" class=" moveNextCarousel middle-indicator-text waves-effect waves-light content-indicator"><i class="material-icons right middle-indicator-text">chevron_right</i></a>
+        </div>
+    </div>
+    <%id = 0%>
+    <% @pictures.each do |image| %>
+        <% if id > 0 %>
+        <div class="carousel-item" href="#one!">
+                
+            <%= image_tag image.image.url,id: "image100", class:"image responsive "%>
+            
+        </div>
+        <% else %>
+            <%id = 1%>   
+        <% end %>
+    <% end %>
+
+</div>
+
+<br>
+<div class="row">
+<%index = 0%>
+<% @pictures.each do |image| %>
+    <div class="col s12 m2" id="<%=index%>">
+        <% if user_signed_in? %>
+             <!-- <%= link_to 'Destroy', "/rent_images/"+image.id.to_s,class:"btn waves-effect waves-light",id:"btn-small", method: :delete, data: { confirm: 'Are you sure?' } %> -->
+             <% id_modal = "modal"+index.to_s%>
+             <button data-target=<%=id_modal%> class="btn modal-trigger" id="btn-small">Destroy</button>
+
+             <div id=<%=id_modal%> class="modal">
+                <div class="modal-content">
+                    <h4>Delete Confirmation</h4>
+                    <p>Are you sure?</p>
+                </div>
+                <div class="modal-footer">
+                    <% href = "/taxi_photos/"+ image.id.to_s%>
+                    <a  data-method="delete" class="waves-effect waves-green btn-flat" href=<%=href%>>Yes</a>
+                    <a class=" modal-action modal-close waves-effect waves-green btn-flat">No</a>
+                </div>
+            </div>
+        <% end %>
+         <div onclick="Change(<%=index%>)">
+            <%= image_tag image.image.url, :style => "object-fit:cover; width:200px; height:200px;"%>
+        </div>
+        <%index += 1%>
+    </div>
+<% end %>
+</div>
+
+<div class="row">
+    
+<% if user_signed_in? %>
+<%= form_tag("/taxi_photos/",:multipart=>true) do |form| %>
+<center>
+  <strong>Add Photo:</strong>
+  <div class="btn-floating btn-large waves-effect waves-light" style="font-size:25px;" id="btn-circular">+</div>
+   <%= file_field_tag "image[]", type: :file, multiple:true , style:"display:none;"%>
+
+<br>
+<br>
+  <div class="actions">
+    <%= submit_tag "Create", class:"waves-effect waves-light btn"%>
+  </div>
+  </center>
+<% end %>
+<% end %>
+<br>
+<br>
+<br><br><br>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+      <style>
+        #div_relative {
+          position: relative;
+          width: 100%;
+          height: 100%;
+      }
+      #image100{
+        position: absolute;
+        width: 100%;
+        height:100%;
+        top: 0px;
+        left: 0px;
+        object-fit:none;
+      }
+      #div_absolute {
+          position: absolute;
+          
+          top: 0px;
+          left: 0px;
+          right: 0px;
+          width: 100%;
+          height: 100%;
+          
+      }
+      
+      #floating_card{
+        left: 20px;
+        width: 300px;
+        background-color: white;
+        color: black;
+      }
+      .overlap-header {
+          padding: 0px 0px 0px; /* Bottom padding has extra 100px */
+          text-align: center;
+          background: #333;
+          color: #fff;
+          position: relative;
+      }
+      .half-out-button {
+          position: absolute;
+          bottom: 0;
+          right: 5%;
+          height: 30px;
+          
+          margin-bottom: -15px; /* Change this as you like */
+      }
+      .half-out-card{
+        position: absolute;
+          bottom: 0;
+          width: 100%;
+          height: 300px;
+          
+          margin-bottom: -190px;
+      }
+      
+      @media (max-width: 991px) {
+          
+       
+          .gallery {
+              display:none !important;
+          }
+      }
+      </style>
+
+
+<script src="/scripts/carousel_gallery.js"></script>
+<script>
+    $(document).ready(function(){
+        // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+        //$('.modal-trigger').leanModal();
+        $('.modal').modal();
+    });
+</script>
+<script>
+  $("#btn-circular").click(function () {
+    $("#image_").trigger('click');
+});
+</script>

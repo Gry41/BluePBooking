@@ -1,0 +1,431 @@
+<div class="row">
+        <div class="col m12 s0">
+          <div class="overlap-header">
+            <div class="gallery">
+        
+              <div class="carousel carousel-slider center " data-indicators="true">
+                <div class="carousel-fixed-item center middle-indicator">
+                <div class="left">
+                  <a href="Previo" class="movePrevCarousel middle-indicator-text waves-effect waves-light content-indicator"><i class="material-icons left  middle-indicator-text">chevron_left</i></a>
+                </div>
+                
+                <div class="right">
+                <a href="Siguiente" class=" moveNextCarousel middle-indicator-text waves-effect waves-light content-indicator"><i class="material-icons right middle-indicator-text">chevron_right</i></a>
+                </div>
+                </div>
+            
+           <%id = "div_relative"%>
+           <%@rents.each do |rent|%>
+           <%if rent.rent_images.count>0%>
+            <div class="carousel-item red" href="#one!" id=<%=id%>>
+            <div id="div_absolute">
+              <center>
+                <%= image_tag  rent.rent_images.first.image.url, id: "image100", class:"image responsive"%>   
+              </center>
+            </div>
+            <%id = ""%>
+            <div id="div2" style="position:absolute; top:0; left:0;">
+              <div class="card overlap-header" id="floating_card">
+                <br>
+                <strong><%=rent.home%></strong>
+                <br>
+                <br>
+                <%= link_to 'Check here', rent_path(rent) ,class:"waves-effect waves-light btn half-out-button", style:"z-indx:9000" %>
+                
+              </div>
+            </div>
+                   
+            </div>
+            <%end%><%end%>
+            
+          </div>
+          
+        </div>
+        <div class="half-out-card">
+          <center>
+          <div class="row">
+              <%= form_tag("/rents/query", :multipart=>true) do %>
+              <div class="col  m0 l2">
+            
+              </div>
+              <div class="col m12 l8">
+                <div class="card" style="background-color: white;">
+                  <div class="container">
+          <br>
+                    <strong>Quick Search:<strong>
+                      <br>
+                    <div class="row">
+                      <div class="col m3 s12">
+                        <label>Location</label>
+                          <select name="rnt[location_id]" >
+                              <option value="">Any</option>
+                              <%Location.all.each do |single|%>
+                              <option value=<%=single.id%>><%=single.name%></option>
+                            <% end%>
+                            </select>
+                            
+                      </div>
+                      <div class="col m3 s12">
+                        <label>Bedrooms</label>
+                        <br>
+                          <select name="rnt[rooms]">
+                              <option value="0">Any</option>
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <option value ="4">4</option>
+                              <option value="5">5</option>
+                            </select>
+                      </div>
+                      <div class="col m3 s12">
+                        <label>Bathrooms</label>
+                        <br>
+                          <select name="rnt[bathrooms]">
+                              <option value="0">Any</option>
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <option value ="4">4</option>
+                              <option value="5">5</option>
+                            </select>                
+                      </div>
+                      <div class="col m3 s12">
+                        <label>Price</label>   
+                        <br>         
+                        <select name="rnt[dbl_price]" >
+                          <option value="100000000">Any</option>
+                          <option value="20">20</option>
+                          <option value="50">50</option>
+                          <option value="80">80</option>
+                          <option value="100">100</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col s0 m3 l7"></div>
+                      <div class="col s12 m6 l4">
+                        <%= submit_tag "Send", :class=>"waves-effect waves-light btn"%>
+                      </div>
+                      <div class="col s0 m1 l1"></div>
+                    </div>
+                   <br>
+                  </div>
+                </div>
+              </div>
+              <div class="col m0 l2"></div>
+              <% end %>
+          </div>
+        </center>
+      </div>
+    </div>
+  </div>
+</div>
+      <style>
+        #div_relative {
+          position: relative;
+          width: 100%;
+          height: 100%;
+      }
+      #image100{
+        position: absolute;
+      width: 100%;
+      
+        top: 0px;
+        left: 0px;
+        right: 0px;
+      }
+      #div_absolute {
+          position: absolute;
+          
+          top: 0px;
+          left: 0px;
+          right: 0px;
+          width: 100%;
+          height: 100%;
+          
+      }
+      
+      #floating_card{
+        left: 20px;
+        width: 300px;
+        background-color: white;
+        color: black;
+      }
+      .overlap-header {
+          padding: 0px 0px 0px; /* Bottom padding has extra 100px */
+          text-align: center;
+          background: #333;
+          color: #fff;
+          position: relative;
+      }
+      .half-out-button {
+          position: absolute;
+          bottom: 0;
+          right: 5%;
+          height: 30px;
+          
+          margin-bottom: -15px; /* Change this as you like */
+      }
+      .half-out-card{
+        position: absolute;
+          bottom: 0;
+          width: 100%;
+          height: 300px;
+          
+          margin-bottom: -190px;
+      }
+      
+      @media (max-width: 991px) {
+          
+        .half-out-card{
+          display: none !important;
+        }
+          .gallery {
+              display:none !important;
+          }}
+      @media(min-width:992px){
+        .mob{
+          display:none !important;
+        }
+      }
+      </style>
+      <div class="mob">
+          <center>
+              <div class="row">
+                  <%= form_tag("/rents/query", :multipart=>true) do %>
+                  <div class="col s2">
+                
+                  </div>
+                  <div class="col s8">
+                    <div class="card" style="background-color: white;">
+                      <div class="container">
+              <br>
+                        <strong>Quick Search:<strong>
+                          <br>
+                        <div class="row">
+                          <div class="col m3 s12">
+                            <label>Location</label>
+                              <select name="rnt[location_id]" >
+                                  <option value="">Any</option>
+                                  <%Location.all.each do |single|%>
+                                  <option value=<%=single.id%>><%=single.name%></option>
+                                <% end%>
+                                </select>
+                                
+                          </div>
+                          <div class="col m3 s12">
+                            <label>Bedrooms</label>
+                            <br>
+                              <select name="rnt[rooms]">
+                                  <option value="0">Any</option>
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                  <option value="3">3</option>
+                                  <option value ="4">4</option>
+                                  <option value="5">5</option>
+                                </select>
+                          </div>
+                          <div class="col m3 s12">
+                            <label>Bathrooms</label>
+                            <br>
+                              <select name="rnt[bathrooms]">
+                                  <option value="0">Any</option>
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                  <option value="3">3</option>
+                                  <option value ="4">4</option>
+                                  <option value="5">5</option>
+                                </select>                
+                          </div>
+                          <div class="col m3 s12">
+                            <label>Price</label>   
+                            <br>         
+                            <select name="rnt[dbl_price]" >
+                              <option value="100000000">Any</option>
+                              <option value="20">20</option>
+                              <option value="50">50</option>
+                              <option value="80">80</option>
+                              <option value="100">100</option>
+                            </select>
+                
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col s3 m10"></div>
+                          <div class="col s2">
+                              <%= submit_tag "Send", :class=>"waves-effect waves-light btn"%>
+                              
+                          </div>
+                        </div>
+                       <br>
+                      </div>
+                    </div>
+                  </div>
+                  <% end %>
+              </div>
+            </center>
+      </div>
+      <div class="container">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <% if user_signed_in? %>
+        <div class="row">
+          <div class="col s4 m2">
+            
+              <Strong>Add rent</Strong>
+          </div>
+          <div class="col s4 m2">
+              <%= link_to '+', new_rent_path,class:"btn-floating btn-large waves-effect waves-light" ,style:"font-size:25px;", id:"btn-circular" %>   
+          </div>
+          <div class="s4 m8"></div>
+        </div>
+        
+        <% end%>    
+        <br>
+      <br>
+          
+        </div>
+        
+        
+       
+      
+          <div class="row">
+            <div class="col s0 m1"></div>
+            <div class="col s12 m10">
+              <div class="col s12">
+                  <strong>Our top destination</strong>
+                  <br>
+                   </div>
+             <% i = 0%>
+              <% @rents.each do |rent| %>
+              <div class="col s12 l3 m4">
+              <div class="card" style="height:100px;">
+                 
+                  <div class="row">
+                    <div class="col s7">
+                        <div class="row">Name:</div>
+                        <div class="row"><%= rent.name%></div>
+                    </div>
+                    <div class="col s5">
+                        <%if rent.rent_images.count>0%>
+                        <%=image_tag rent.rent_images.first.image.url, class:"image-responsive" ,style:"margin-top:3px; width:100%; max-height:100px"%>
+                        <%else%>
+                        <%=image_tag "logo.png", class:"image-responsive" ,style:"margin-top:10px; width:100%; max-height:300px"%>
+                        <%end%>
+                      <div class="row">
+                          <div class="col s6">
+                              <% if user_signed_in? %>
+                              <%= link_to 'Edit', edit_rent_path(rent), class:"waves-effect waves-light btn", id: "btn-small" %>      
+                          <% end %>
+                            </div>
+                        <div class="col s6">
+                            <%= link_to 'Show', rent, class:"waves-effect waves-light btn", id: "btn-small" %>      
+                        </div>
+                        
+                        
+                      </div>
+                           </div>
+                  </div>
+                  
+                
+              </div>
+            </div>
+              <% end %>
+            </div>
+          </div>
+          
+
+
+          <center>
+            <div id='map' style="width: 1000px; height: 500px; "></div>
+          </center>
+          <br>
+ <div class="container" >  
+   <div class="row">
+    <div class="s12">
+      <strong>Why are we diferent?</strong>
+      <br>
+      <br>
+    </div>
+    
+  <div class="col m4 s12">
+      <center>
+    <%=image_tag "home1.png", class:"image responsive" ,style:"max-width:70%"%>
+    <br>
+       <strong>Our quick answers.</strong></center>
+
+    </div>   
+    <div class="col m4 s12">
+        <center>
+      <%=image_tag "home2.png", class:"image responsive" ,style:"max-width:70%"%>
+      <br>
+         <strong>Our excellent places</strong></center>
+  
+      </div>
+      <div class="col m4 s12">
+          <center>
+        <%=image_tag "home3.png", class:"image responsive" ,style:"max-width:70%"%>
+        <br>
+           <strong>Our friendly communication</strong></center>
+    
+        </div>
+  </div>   
+<div class="row">
+  <div class="col m6 s0">
+      
+
+  </div>
+  <div class=" col m6 s12">
+      <%= form_tag("/rents/mail_us", :multipart=>true) do %>
+      
+        
+          <div class="card ">
+            <div class="container">
+                <br>
+              <strong>Send us a message</strong>
+             
+
+            <div class="input-field">
+              <input name= "information[name]" type="text" id="Name" >
+              <label for="Name">Name</label>
+            </div>
+            
+            <div class="input-field">
+                <input name= "information[email]" type="text" id="Email" >
+                <label for="Email">Email</label>
+              </div>
+              
+              <div class="input-field">
+
+              <input name="information[note]" type="text" id="Note">
+                  <label for="Note">Message</label>
+                </div>
+              
+              <div class="row">              
+                <div class="col s2">
+                    <%= submit_tag "Send", :class=>"waves-effect waves-light btn"%>
+                    <br>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+      
+      
+    <%end%>
+  </div>
+</div>
+ </div>
+ <br>
+ <br><br>         
+ <style>
+ .fd{
+   max-height: 65;
+ }</style>
+          <script src="/scripts/map_home.js"></script>
+          <script src="/scripts/select.js"></script>
+          <script src="/scripts/carousel.js"></script>

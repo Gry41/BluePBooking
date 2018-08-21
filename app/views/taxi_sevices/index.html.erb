@@ -1,0 +1,240 @@
+<div class="carousel carousel-slider center" data-indicators="true">
+    <% if @photos.count > 0 %>
+    <div class="carousel-item" id="div_relative" href="#one!">
+        <%= image_tag @photos.first.image.url,id: "image100", class:"image responsive"%>
+    </div>
+    <% else %>
+    <div class="carousel-item" id="div_relative" href="#one!">
+        <%= image_tag "/assets/user.png",id: "image100", class:"image responsive"%>
+    </div>
+    <%end %>
+    <div class="carousel-fixed-item center middle-indicator">
+        <div class="left">
+        <a href="Previo" class="movePrevCarousel middle-indicator-text waves-effect waves-light content-indicator"><i class="material-icons left  middle-indicator-text">chevron_left</i></a>
+        </div>
+        
+        <div class="right">
+        <a href="Siguiente" class=" moveNextCarousel middle-indicator-text waves-effect waves-light content-indicator"><i class="material-icons right middle-indicator-text">chevron_right</i></a>
+        </div>
+    </div>
+    <%id = 0%>
+    <% @photos.each do |image| %>
+        <% if id > 0%>
+        <div class="carousel-item" href="#one!">
+                
+            <%= image_tag image.image.url,id: "image100", class:"image responsive "%>
+            
+        </div>
+        <% else %>
+          <%id = 1%>
+        <% end %>
+    <% end %>
+    <div class="carousel-fixed-item center">
+      <%=link_to "Gallery" ,"/taxi_photos/gallery/", class:"waves-effect waves-light btn"%>
+    </div>
+
+</div>
+
+
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col m6 s12">
+        <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <% if user_signed_in? %>
+                <th colspan="3"></th>
+              <%end%>
+              </tr>
+            </thead>
+          
+            <tbody>
+              <%id = 0%>
+              <% @taxi_sevices.each do |taxi_sevice| %>
+                <tr>
+                  <td><%= taxi_sevice.name %></td>
+                  <td><%= taxi_sevice.price %></td>
+                  <td>
+                  <!--
+                  <%= link_to 'Show', taxi_sevice, class:"waves-effect waves-light btn", id:"btn-small" %>
+                  -->
+                  <% if user_signed_in? %>
+                  <%= link_to 'Edit', edit_taxi_sevice_path(taxi_sevice), class:"waves-effect waves-light btn", id:"btn-small" %>
+                  <% id_modal = "modal"+id.to_s%>
+                  <button data-target=<%=id_modal%> class="btn modal-trigger" id="btn-small">Destroy</button>
+                  <!-- <%= link_to 'Destroy', taxi_sevice, method: :delete, data: { confirm: 'Are you sure?' },class:"waves-effect waves-light btn", id:"btn-small" %> -->
+                  <div id=<%=id_modal%> class="modal">
+                      <div class="modal-content">
+                        <h4>Delete Confirmation</h4>
+                        <p>Are you sure?</p>
+                      </div>
+                      <div class="modal-footer">
+                        <% href = "/taxi_sevices/"+ taxi_sevice.id.to_s%>
+                        <a  data-method="delete" class="waves-effect waves-green btn-flat" href=<%=href%>>Yes</a>
+                        <a class=" modal-action modal-close waves-effect waves-green btn-flat">No</a>
+                      </div>
+                    </div>
+                    <%id += 1%>
+                  
+                  <% end%>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+          
+          <br>
+          
+          <% if user_signed_in? %>
+          <%= link_to 'New Taxi Service', new_taxi_sevice_path, class:"waves-effect waves-light btn" %>
+          <%end%>
+
+    </div>
+    <div class="col m6 s12">
+        <%= form_tag("/taxi_sevices/mail", :multipart=>true) do %>
+        
+          <div class="col s11">
+            <div class="card ">
+              <div class="container">
+                <br>
+              <div class="input-field">
+                <input name= "information[name]" type="text" id="Name" >
+                <label for="Name">Name</label>
+              </div>
+              <div class="input-field">
+                <input name= "information[country]" type="text" id="Country" >
+                <label for="Country">Country</label>
+              </div>
+              <div class="input-field">
+                  <input name= "information[mail]" type="text" id="Email" >
+                <label for="Email">Email</label>
+              </div>
+              <div class="input-field">
+                  <input name="information[count]" type="text" id="Count">
+                  <label for="Count">PAX</label>
+                </div>
+              
+                <div class="field">
+                    <label for="date-in">Date</label>  
+                  <input type="date" class="datepicker" name= "information[date]", id="date-in">
+                    
+                </div>
+                <div class="input-field">
+                  <input name="information[pfrom]" type="text" id="pfoom">
+                  <label for="pfrom">From</label>
+                </div>
+  
+                <div class="input-field">
+                    <input name="information[pto]" type="text" id="pto">
+                    <label for="pto">To</label>
+                  </div>
+                
+                <div class="input-field">
+  
+                <input name="information[note]" type="text" id="Note">
+                    <label for="Note">Note</label>
+                  </div>
+                <div class="field">
+                  <label>Car type</label>
+                  <select name="information[cartype]">
+                    <option value= "Any">Any</option>
+                    <option value="Standar">Standar</option>
+                    <option value= "Clasic">Clasic</option>
+                  </select>
+                </div>
+                <div class="row">
+                  <div class="col s2">
+                      <%= submit_tag "Request", :class=>"waves-effect waves-light btn"%>
+                      <br>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+      <%end%>
+    </div>
+  </div>
+  
+</div>
+<br>
+<br>
+<script>
+    $(document).ready(function(){
+      // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+      //$('.modal-trigger').leanModal();
+      $('.modal').modal();
+    });
+</script>
+<script src="/scripts/select.js"></script>
+<script src="/scripts/carousel.js"></script>
+
+<style>
+        #div_relative {
+          position: relative;
+          width: 100%;
+          height: 100%;
+      }
+      #image100{
+        position: absolute;
+        width: 100%;
+        height:100%;
+        top: 0px;
+        left: 0px;
+        object-fit:none;
+      }
+      #div_absolute {
+          position: absolute;
+          
+          top: 0px;
+          left: 0px;
+          right: 0px;
+          width: 100%;
+          height: 100%;
+          
+      }
+      
+      #floating_card{
+        left: 20px;
+        width: 300px;
+        background-color: white;
+        color: black;
+      }
+      .overlap-header {
+          padding: 0px 0px 0px; /* Bottom padding has extra 100px */
+          text-align: center;
+          background: #333;
+          color: #fff;
+          position: relative;
+      }
+      .half-out-button {
+          position: absolute;
+          bottom: 0;
+          right: 5%;
+          height: 30px;
+          
+          margin-bottom: -15px; /* Change this as you like */
+      }
+      .half-out-card{
+        position: absolute;
+          bottom: 0;
+          width: 100%;
+          height: 300px;
+          
+          margin-bottom: -190px;
+      }
+      
+      @media (max-width: 991px) {
+          
+       
+          .gallery {
+              display:none !important;
+          }
+      }
+      </style>

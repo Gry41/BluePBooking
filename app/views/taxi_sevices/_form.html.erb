@@ -1,0 +1,61 @@
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col s12 m6">
+      
+          <div class="card">
+<div class="container">
+  
+<%= form_with(model: taxi_sevice, local: true,:html=>{ :multipart => true }) do |form| %>
+<% if taxi_sevice.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(taxi_sevice.errors.count, "error") %> prohibited this taxi_sevice from being saved:</h2>
+
+    <ul>
+    <% taxi_sevice.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+<br>
+<div class="input-field">
+  
+  <%= form.text_field :name, id:"taxi_service_name"  %>
+  <label for="taxi_service_name" class="active">Name</label>
+</div>
+
+<div class="input-field">
+  
+  <%= form.text_field :price, id: "taxi_sevice_price" %>
+
+  <label for="taxi_sevice_price" class="active">Price</label>
+</div>
+<div class="btn-floating btn-large waves-effect waves-light" style="font-size:25px;" id="btn-circular">+</div>
+   <%= file_field_tag "image[]", type: :file, multiple:true , style:"display:none;"%>
+<br>
+<br>
+
+<div class="actions">
+  <%= form.submit class:"waves-effect waves-light btn", value:"Save" %>
+</div>
+<br>
+<% end %>
+
+            </div>
+
+
+      
+    </div>
+  </div>
+  
+</div>
+  
+</div>
+
+
+<script>
+  $("#btn-circular").click(function () {
+    $("#image_").trigger('click');
+});
+</script>

@@ -1,0 +1,17 @@
+<%= form_with(model: taxi_image, local: true) do |form| %>
+  <% if taxi_image.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(taxi_image.errors.count, "error") %> prohibited this taxi_image from being saved:</h2>
+
+      <ul>
+      <% taxi_image.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

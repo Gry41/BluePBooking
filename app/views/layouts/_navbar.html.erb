@@ -1,0 +1,64 @@
+
+    <ul id="dropdown1" class="dropdown-content">
+        <li><%= link_to('Logout',destroy_user_session_path, method: :delete)%></li>
+        <li><%= link_to("User", edit_user_registration_path) %>
+        </li>
+    </ul>
+<div class="navbar-fixed" style="z-index:100000;" >
+  <nav style="background-color:white">
+    <div class="container" >
+    <div class="nav-wrapper"  >
+      <%=image_tag "logo.png", style:"height:40px; margin-top:10px", class:"image responsive col s0"%>
+      <a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <div id="myDIV">
+          <li><a  href="/rents/home" onclick="Update(0)" class=<%=class_navbar('home')%>>Home</a></li>
+          <li><a  href="/rents" onclick="Update(1)" class=<%=class_navbar('rent')%>>Houses</a></li>
+          <li><a  href="/taxi_sevices" onclick="Update(2)" class=<%=class_navbar('taxi')%>>Taxis</a></li>
+          <li><a  href="/tour_services" onclick="Update(3)" class=<%=class_navbar('tour')%>>Tours</a></li>
+          <li><a  href="/rules" onclick="Update(4)" class=<%=class_navbar('rule')%>>Rules</a></li>
+          <li><a  href="/contacts" onclick="Update(5)" class=<%=class_navbar('contact')%>>Contact</a></li>
+          <% if user_signed_in? %>
+          <li><a class="dropdown-trigger colors a" data-activates="dropdown1">User<i class="material-icons right">arrow_drop_down</i></a></li>
+          
+        <%end%>
+        </div>
+      </ul>
+      <ul class="side-nav" id="mobile-menu">
+        <li><a  href="/rents/home" onclick="Update(0)" class=<%=class_navbar('home')%>>Home</a></li>
+        <li><a  href="/rents" onclick="Update(1)" class=<%=class_navbar('rent')%>>Houses</a></li>
+        <li><a  href="/taxi_sevices" onclick="Update(2)" class=<%=class_navbar('taxi')%>>Taxis</a></li>
+        <li><a  href="/tour_services" onclick="Update(3)" class=<%=class_navbar('tour')%>>Tours</a></li>
+        <li><a  href="/rules" onclick="Update(4)" class=<%=class_navbar('rule')%>>Rules</a></li>
+        <li><a  href="/contacts" onclick="Update(5)" class=<%=class_navbar('contact')%>>Contact</a></li>
+        <% if user_signed_in? %>
+        
+      <%end%>
+      </ul>
+    </div>
+  </div>
+  </nav>
+</div>
+
+<style>
+   
+    .colors{
+      color: black;
+    }
+    .actived, .a:hover {
+      background-color: #059efa;
+      color: #059efa;
+      height: 10px;
+    }
+  </style>
+
+  <script>
+    $(document).ready(function(){
+     $('.dropdown-trigger').dropdown();
+     $(".button-collapse").sideNav();
+    });
+   
+
+</script>
+  <script src="/scripts/navbar.js"></script>
+  

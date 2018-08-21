@@ -1,0 +1,2 @@
+module TaxiImagesHelper
+end

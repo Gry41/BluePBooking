@@ -1,0 +1,2 @@
+module TourImagesHelper
+end

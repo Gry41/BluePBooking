@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Taxi Images</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @taxi_images.each do |taxi_image| %>
+      <tr>
+        <td><%= link_to 'Show', taxi_image %></td>
+        <td><%= link_to 'Edit', edit_taxi_image_path(taxi_image) %></td>
+        <td><%= link_to 'Destroy', taxi_image, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Taxi Image', new_taxi_image_path %>

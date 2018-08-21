@@ -1,0 +1,17 @@
+<%= form_with(model: tour_image, local: true) do |form| %>
+  <% if tour_image.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tour_image.errors.count, "error") %> prohibited this tour_image from being saved:</h2>
+
+      <ul>
+      <% tour_image.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

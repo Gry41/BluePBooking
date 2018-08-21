@@ -1,0 +1,303 @@
+<%if @rent.rent_images.count>0%>
+<div class="">
+        
+          <div class="carousel carousel-slider center ">
+            
+            <div class="carousel-fixed-item center middle-indicator">
+
+             <div class="left">
+              <a href="Previo" class="movePrevCarousel middle-indicator-text waves-effect waves-light content-indicator"><i class="material-icons left  middle-indicator-text">chevron_left</i></a>
+             </div>
+             
+             <div class="right">
+             <a href="Siguiente" class=" moveNextCarousel middle-indicator-text waves-effect waves-light content-indicator"><i class="material-icons right middle-indicator-text">chevron_right</i></a>
+             </div>
+            </div>
+            
+           <%id = "div_relative"%>
+           <%@rent.rent_images.each do |rent|%>
+          
+            <div class="carousel-item red" href="#one!" id=<%=id%>>
+            <div id="div_absolute">
+              <center>
+                <%= image_tag  rent.image.url, id: "image100", class:"image responsive"%>   
+              </center>
+            </div>
+            <%id = ""%>
+            
+                   
+            </div>
+            <%end%>
+            <div class="carousel-fixed-item center">
+                <%=link_to "Gallery" ,"/rents/gallery/"+@rent.id.to_s, class:"waves-effect waves-light btn"%>
+                </div>
+          </div>
+          
+        </div>
+        <%end%>
+
+<br>
+
+<div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Delete Confirmation</h4>
+      <p>Are you sure?</p>
+    </div>
+    <div class="modal-footer">
+      <% href = "/rents/"+ @rent.id.to_s%>
+      <a  data-method="delete" class="waves-effect waves-green btn-flat" href=<%=href%>>Yes</a>
+      <a class=" modal-action modal-close waves-effect waves-green btn-flat">No</a>
+    </div>
+  </div>
+
+<div class="container">
+    <% if user_signed_in? %>
+    <div class="row">
+        <div class="col s0 m8"></div>
+        
+        <div class="col s2">
+            <button data-target="modal1" class="btn modal-trigger">Destroy</button>
+          <!--  <a class="waves-effect waves-light btn modal-trigger" data-target="modal1">Modal</a>
+          <%= link_to 'Destroy', @rent, method: :delete, data: { confirm: 'Are you sure?' }, class:"waves-effect waves-light btn" %>
+          -->
+        </div>
+        <div class="col s2">
+            <a class="waves-effect waves-light btn" href=<%=edit_rent_path(@rent)%>>Edit</a>
+        </div>
+    </div>
+    <% end%>
+
+<div class="row">
+  <div class="col m6 s12">
+    <p>
+      <strong>Name:</strong>
+      <%= @rent.name %>
+    </p>
+    
+    <p>
+      <strong>Address:</strong>
+      <%= @rent.address %>
+    </p>
+    
+    <p>
+      <strong>Rooms:</strong>
+      <%= @rent.rooms %>
+    </p>
+    
+    <p>
+      <strong>Bathrooms:</strong>
+      <%= @rent.bathrooms %>
+    </p>
+    
+    <p>
+      <strong>Dbl:</strong>
+      <%= @rent.dbl_price %>
+    </p>
+    
+    <p>
+      <strong>Tpl:</strong>
+      <%= @rent.tpl_price %>
+    </p>
+    
+    <p>
+      <strong>Qpl:</strong>
+      <%= @rent.qpl_price %>
+    </p>
+    
+    <p>
+      <strong>Home:</strong>
+      <%= @rent.home %>
+    </p>
+    
+    
+    <p>
+      <strong>Features:</strong>
+      <%= @rent.features %>
+    </p>
+    
+    <p>
+      <% if @rent.tripadvisor %>
+        <strong>Tripadvisor</strong>
+      <% end %>
+    </p>
+    
+    
+    <p>
+      <strong>Location:</strong>
+      <%= @rent.location.name %>
+    </p>
+    
+    <strong>Services:</strong>
+    <% @rent.services.each do |single|%>
+    <div class="col s12">
+    <strong>-</strong><%= single.name%>
+     </div>
+    <% end%>
+    <% @rent.facilities.each do |single|%>
+    <div class="col s12">
+    <strong>-</strong><%= single.name%>
+     </div>
+     <% end %>
+
+  </div>
+  <div class="col m6 s12">
+      <%= form_tag("/rents/mail", :multipart=>true) do %>
+      <div class="container">
+        <div class="col s11">
+          <div class="card">
+            <div class="container">
+              <br>
+            <div class="input-field">
+              <input name= "information[name]" type="text" id="Name" >
+              <label for="Name">Name</label>
+            </div>
+            <div class="input-field">
+              <input name= "information[country]" type="text" id="Country" >
+              <label for="Country">Country</label>
+            </div>
+            <div class="input-field">
+                <input name= "information[mail]" type="text" id="Email" >
+              <label for="Email">Email</label>
+            </div>
+              <div class="field">
+                  <label for="date-in">Date in</label>  
+                <input type="date" class="datepicker" name= "information[in_date]", id="date-in">
+                  
+                  
+              </div>
+              <div class="field">
+                  <label for="date-out">Date out</label>
+                  <input type="date" class="datepicker" name= "information[out]" id="date-out">
+                  
+              </div>
+              <div class="input-field">
+                <input name="information[rooms]" type="text" id="Bedrooms">
+                <label for="Bedrooms">Bedrooms</label>
+              </div>
+              <div class="input-field">
+                  <input name="information[count]" type="text" id="Count">
+                  <label for="Count">Count</label>
+                </div>
+              
+              
+              <div class="input-field">
+
+              <input name="information[note]" type="text" id="Note">
+                  <label for="Note">Note</label>
+                </div>
+                <div class="field" style="display: none">
+                   <input type="text"  name="information[h_name]" value=<%=@rent.name%>> >
+                  </div>
+              <div class="row">              
+                <div class="col s2">
+                    <%= submit_tag "Request", :class=>"waves-effect waves-light btn"%>
+                </div>
+              </div>
+            </div>
+            <br>
+          </div>
+        </div>
+      </div>
+    </div>  
+  </div>
+</div>
+
+  
+<% end%>
+<br>
+
+</div>
+
+
+<script src="/scripts/carousel.js"></script>
+<script>
+    $(document).ready(function(){
+      // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+      //$('.modal-trigger').leanModal();
+      $('.modal').modal();
+    });
+  //$(document).ready(function(){
+    //$('.datepicker').pickadate({
+     // selectMonths:true,
+     //  selectYears:15
+    //});
+   // $('.datepicker').pickadate({
+      //labelMonthNext: 'Next month',
+      //labelMonthPrev: 'Previous month',
+      //labelMonthSelect: 'Select a month',
+      //labelYearSelect: 'Select a year',
+      //monthsFull: [ 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ],
+      //monthsShort: [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' ],
+      //weekdaysFull: [ 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' ],
+      //weekdaysShort: [ 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat' ],
+      //weekdaysLetter: [ 'S', 'M', 'T', 'W', 'T', 'F', 'S' ],
+      //today: 'Today',
+      //clear: 'Clear',
+      //close: 'Close'
+   // });
+ // });
+</script>
+<style>
+  #div_relative {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+#image100{
+  position: absolute;
+width: 100%;
+
+  top: 0px;
+  left: 0px;
+  right: 0px;
+}
+#div_absolute {
+    position: absolute;
+    
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    width: 100%;
+    height: 100%;
+    
+}
+
+#floating_card{
+  left: 20px;
+  width: 300px;
+  background-color: white;
+  color: black;
+}
+.overlap-header {
+    padding: 0px 0px 0px; /* Bottom padding has extra 100px */
+    text-align: center;
+    background: #333;
+    color: #fff;
+    position: relative;
+}
+.half-out-button {
+    position: absolute;
+    bottom: 0;
+    right: 5%;
+    height: 30px;
+    
+    margin-bottom: -15px; /* Change this as you like */
+}
+.half-out-card{
+  position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 300px;
+    
+    margin-bottom: -190px;
+}
+
+@media (max-width: 991px) {
+    
+ 
+    .gallery {
+        display:none !important;
+    }
+    }
+
+</style>

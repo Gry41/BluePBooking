@@ -1,0 +1,182 @@
+
+<div class="container">
+  <br>
+  <% if user_signed_in? %>
+  <div class="row">
+    <div class="col s4 m2">
+      
+        <Strong>Add rent</Strong>
+    </div>
+    <div class="col s4 m2">
+        <%= link_to '+', new_rent_path,class:"btn-floating btn-large waves-effect waves-light" ,style:"font-size:25px;", id:"btn-circular" %>   
+    </div>
+    <div class="s4 m8"></div>
+  </div>
+  
+  <% end%>
+  
+
+      
+      
+   
+
+      <%= form_tag("/rents/query", :multipart=>true) do %>
+    <div class="col s2">
+  
+    </div>
+    <div class="col s8">
+      <div class="card">
+        <div class="container">
+<br>
+          <strong>Quick Search:<strong>
+            <br>
+          <div class="row">
+            <div class="col s3">
+              <label>Location</label>
+                <select name="rnt[location_id]" >
+                    <option value="">Any</option>
+                    <%Location.all.each do |single|%>
+                    <option value=<%=single.id%>><%=single.name%></option>
+                  <% end%>
+                  </select>
+                  
+            </div>
+            <div class="col s3">
+              <label>Bedrooms</label>
+              <br>
+                <select name="rnt[rooms]">
+                    <option value="0">Any</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
+            </div>
+            <div class="col s3">
+              <label>Bathrooms</label>
+              <br>
+                <select name="rnt[bathrooms]">
+                    <option value="0">Any</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value ="4">4</option>
+                    <option value="5">5</option>
+                  </select>                
+            </div>
+            <div class="col s3">
+              <label>Price</label>
+              <br>
+              <select name="rnt[dbl_price]" >
+                <option value="100000000">Any</option>
+                <option value="20">20</option>
+                <option value="50">50</option>
+                <option value="80">80</option>
+                <option value="100">100</option>
+              </select>
+  
+            </div>
+          </div>
+          <div class="row">
+            <div class="col s3 m10"></div>
+            <div class="col s2">
+                <%= submit_tag "Send", :class=>"waves-effect waves-light btn"%>
+                
+            </div>
+          </div>
+         <br>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+  
+  
+ 
+
+    <div class="row">
+      <div class="col s0 m1"></div>
+      <div class="col s12 m10">
+        <div class="col s12">
+            <strong>Our top destination</strong>
+            <br>
+             </div>
+       <% i = 0%>
+        <% @rents.each do |rent| %>
+        <div class="col s12 m3">
+        <div class="card" style="height:100px;">
+           
+            <div class="row">
+              <div class="col s7">
+                  <div class="row">Name:</div>
+                  <div class="row"><%= rent.name%></div>
+              </div>
+              <div class="col s5">
+                <%if rent.rent_images.count>0%>
+                <%=image_tag rent.rent_images.first.image.url, class:"image-responsive" ,style:"margin-top:8px; width:100%; max-height:100%"%>
+                <%else%>
+                <%=image_tag "logo.png", class:"image-responsive" ,style:"margin-top:10px; width:100%; max-height:100%"%>
+                <%end%>
+                <div class="row" style:"button:0px">
+                    <div class="col s6">
+                        <% if user_signed_in? %>
+                        <%= link_to 'Edit', edit_rent_path(rent), class:"waves-effect waves-light btn", id: "btn-small" %>      
+                        <%end%>
+                      </div>
+                  <div class="col s6">
+                      <%= link_to 'Show', rent, class:"waves-effect waves-light btn", id: "btn-small" %>      
+                  </div>
+                  
+                  
+                
+                </div>
+                     </div>
+            </div>
+            
+          
+        </div>
+      </div>
+        <% end %>
+
+      </div>
+    </div>
+  
+    <div class="row">
+        <center>
+            <%= will_paginate(@rents) %>
+            <br>
+            <br>
+            <br>
+          </center>
+    </div> 
+
+<style>
+  .pagination {
+    display: inline-block;
+}
+
+.pagination a:not(.next_page):not(.previous_page){
+    color: black;
+    /* float: left; */
+    padding: 8px 16px;
+    text-decoration: none;
+}
+  .pagination em.current{
+    background-color: #059efa;
+    padding: 8px 16px;
+    color: white;
+}
+
+.pagination a:hover:not(.current):not(.previous_page):not(.next_page) {background-color: #ddd;}
+</style>
+
+<script>
+  $('.previous_page').text("");
+  $('.next_page').text("");
+  $('.previous_page').append('<i class="material-icons left">chevron_left</i>');
+  $('.next_page').append('<i class="material-icons right">chevron_right</i>');
+</script>
+
+    <script src="/scripts/select.js"></script>
+    <script src="/scripts/carousel.js"></script>
