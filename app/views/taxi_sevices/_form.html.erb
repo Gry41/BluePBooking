@@ -31,8 +31,6 @@
 
   <label for="taxi_sevice_price" class="active">Price</label>
 </div>
-<div class="btn-floating btn-large waves-effect waves-light" style="font-size:25px;" id="btn-circular">+</div>
-   <%= file_field_tag "image[]", type: :file, multiple:true , style:"display:none;"%>
 <br>
 <br>
 
@@ -53,9 +51,3 @@
   
 </div>
 
-
-<script>
-  $("#btn-circular").click(function () {
-    $("#image_").trigger('click');
-});
-</script>

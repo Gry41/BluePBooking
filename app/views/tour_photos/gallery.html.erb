@@ -52,7 +52,7 @@
                     <p>Are you sure?</p>
                 </div>
                 <div class="modal-footer">
-                    <% href = "/taxi_photos/"+ image.id.to_s%>
+                    <% href = "/tour_photos/"+ image.id.to_s%>
                     <a  data-method="delete" class="waves-effect waves-green btn-flat" href=<%=href%>>Yes</a>
                     <a class=" modal-action modal-close waves-effect waves-green btn-flat">No</a>
                 </div>
@@ -69,7 +69,7 @@
 <div class="row">
     
 <% if user_signed_in? %>
-<%= form_tag("/taxi_photos/",:multipart=>true) do |form| %>
+<%= form_tag("/tour_photos/",:multipart=>true) do |form| %>
 <center>
   <strong>Add Photo:</strong>
   <div class="btn-floating btn-large waves-effect waves-light" style="font-size:25px;" id="btn-circular">+</div>

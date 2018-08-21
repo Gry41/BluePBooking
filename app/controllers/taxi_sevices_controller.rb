@@ -41,14 +41,6 @@ class TaxiSevicesController < ApplicationController
 
     respond_to do |format|
       if @taxi_sevice.save
-        
-        if params[:image]
-          puts params[:image]
-          params[:image].each { |image|
-            @taxi_sevice.taxi_images.create(taxi_sevice_id: @taxi_sevice.id, image:image)
-          }
-          
-        end
         format.html { redirect_to action: "index" }
       else
         format.html { render :new }
@@ -62,13 +54,6 @@ class TaxiSevicesController < ApplicationController
   def update
     respond_to do |format|
       if @taxi_sevice.update(taxi_sevice_params)
-        if params[:image]
-          puts params[:image]
-          params[:image].each { |image|
-            @taxi_sevice.taxi_images.create(taxi_sevice_id: @taxi_sevice.id, image:image)
-          }
-          
-        end
         format.html { redirect_to action: "index" }
         format.json { render :show, status: :ok, location: @taxi_sevice }
       else

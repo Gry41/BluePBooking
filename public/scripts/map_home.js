@@ -22,11 +22,11 @@ $(document).ready(function(){
 
     // alert("Hi");
     newIcon = L.icon({
-        iconUrl: '/assets/marker-icon-2x.png',
+        iconUrl: '/assets/marker-icon-2x-00179c4c1ee830d3a108412ae0d294f55776cfeb085c60129a39aa6fc4ae2528.png',
         iconSize: [38, 55], // 95
         iconAnchor: [22, 40], // 94
         popupAnchor: [-3, -76],
-        shadowUrl: '/assets/marker-shadow.png',
+        shadowUrl: '/assets/marker-shadow-264f5c640339f042dd729062cfc04c17f8ea0f29882b538e3848ed8f10edb4da.png',
         shadowSize: [68, 70],
         shadowAnchor: [22, 70]
     });

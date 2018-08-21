@@ -6,6 +6,7 @@ root :to => 'rents#home'
   devise_for :users
   resources :rules
   get 'taxi_photos/gallery' => 'taxi_photos#gallery'
+  get 'tour_photos/gallery' => 'tour_photos#gallery'
   get 'map' => 'map#index'
   get 'map/get_map/:z/:x/:y.:format' => 'map#get_map'
   get 'map/save_point' => 'map#save_point'
@@ -23,6 +24,7 @@ root :to => 'rents#home'
   resources :tour_images
   resources :taxi_images
   resources :taxi_photos
+  resources :tour_photos
   
   post 'tour_services/mail' => 'tour_services#mail'
   post 'rents/mail' => 'rents#mail'

@@ -4,6 +4,7 @@ class TourServicesController < ApplicationController
   # GET /tour_services
   # GET /tour_services.json
   def index
+    @photos = TourPhoto.all
     @tour_services = TourService.all
   end
 
@@ -31,14 +32,6 @@ class TourServicesController < ApplicationController
     respond_to do |format|
       if @tour_service.save
 
-        if params[:image]
-          puts params[:image]
-          params[:image].each { |image|
-            @tour_service.tour_images.create(tour_service_id: @tour_service.id, image:image)
-          }
-          
-        end
-
         format.html { redirect_to action:"index" }
         format.json { render :show, status: :created, location: @tour_service }
       else
@@ -61,14 +54,6 @@ class TourServicesController < ApplicationController
   def update
     respond_to do |format|
       if @tour_service.update(tour_service_params)
-
-        if params[:image]
-          puts params[:image]
-          params[:image].each { |image|
-            @tour_service.tour_images.create(tour_service_id: @tour_service.id, image:image)
-          }
-          
-        end
 
         format.html { redirect_to action:"index" }
         format.json { render :show, status: :ok, location: @tour_service }

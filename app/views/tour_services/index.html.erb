@@ -1,3 +1,54 @@
+<div class="carousel carousel-slider center" data-indicators="true">
+  <% if @photos.count > 0 %>
+  <div class="carousel-item" id="div_relative" href="#one!">
+      <%= image_tag @photos.first.image.url,id: "image100", class:"image responsive"%>
+  </div>
+  <% else %>
+  <div class="carousel-item" id="div_relative" href="#one!">
+      <%= image_tag "/assets/user-ba13cb8c158d58f197e22f0311a815c2dde80b46c8a95a1de199020941be2c89.png",id: "image100", class:"image responsive"%>
+  </div>
+  <%end %>
+  <div class="carousel-fixed-item center middle-indicator">
+      <div class="left">
+      <a href="Previo" class="movePrevCarousel middle-indicator-text waves-effect waves-light content-indicator"><i class="material-icons left  middle-indicator-text">chevron_left</i></a>
+      </div>
+      
+      <div class="right">
+      <a href="Siguiente" class=" moveNextCarousel middle-indicator-text waves-effect waves-light content-indicator"><i class="material-icons right middle-indicator-text">chevron_right</i></a>
+      </div>
+  </div>
+  <%id = 0%>
+  <% @photos.each do |image| %>
+      <% if id > 0%>
+      <div class="carousel-item" href="#one!">
+              
+          <%= image_tag image.image.url,id: "image100", class:"image responsive "%>
+          
+      </div>
+      <% else %>
+        <%id = 1%>
+      <% end %>
+  <% end %>
+  <div class="carousel-fixed-item center">
+    <%=link_to "Gallery" ,"/tour_photos/gallery/", class:"waves-effect waves-light btn"%>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="container">
  
 <div class="row">
@@ -125,3 +176,69 @@
       $('.modal').modal();
     });
 </script>
+
+<script src="/scripts/carousel.js"></script>
+
+<style>
+  #div_relative {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+#image100{
+  position: absolute;
+  width: 100%;
+  height:100%;
+  top: 0px;
+  left: 0px;
+  object-fit:none;
+}
+#div_absolute {
+    position: absolute;
+    
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    width: 100%;
+    height: 100%;
+    
+}
+
+#floating_card{
+  left: 20px;
+  width: 300px;
+  background-color: white;
+  color: black;
+}
+.overlap-header {
+    padding: 0px 0px 0px; /* Bottom padding has extra 100px */
+    text-align: center;
+    background: #333;
+    color: #fff;
+    position: relative;
+}
+.half-out-button {
+    position: absolute;
+    bottom: 0;
+    right: 5%;
+    height: 30px;
+    
+    margin-bottom: -15px; /* Change this as you like */
+}
+.half-out-card{
+  position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 300px;
+    
+    margin-bottom: -190px;
+}
+
+@media (max-width: 991px) {
+    
+ 
+    .gallery {
+        display:none !important;
+    }
+}
+</style>

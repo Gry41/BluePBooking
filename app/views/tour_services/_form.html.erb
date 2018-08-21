@@ -36,9 +36,6 @@
     <label for="tour_service_description">Description</label>
 
   </div>
-  <div class="btn-floating btn-large waves-effect waves-light" style="font-size:25px;" id="btn-circular">+</div>
-   <%= file_field_tag "image[]", type: :file, multiple:true , style:"display:none;"%>
-
 <br>
 <br>
   <div class="actions">
@@ -49,9 +46,3 @@
 <br>
 
 </div></div></div></div></div>
-
-<script>
-  $("#btn-circular").click(function () {
-    $("#image_").trigger('click');
-});
-</script>
