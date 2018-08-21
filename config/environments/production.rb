@@ -30,7 +30,7 @@ Rails.application.configure do
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
-  config.action_mailer.default_url_options = { :host => 'mighty-headland-81697.herokuapp.com' }
+ 
   # config.serve_static_assets = true
   # config.assets.compile = true
   # config.assets.digest = true
@@ -102,5 +102,6 @@ Rails.application.configure do
     authentication:       'plain',
     enable_starttls_auto: true  
   }
+  config.action_mailer.default_url_options = { :host => 'https://mighty-headland-81697.herokuapp.com' }
   
 end
