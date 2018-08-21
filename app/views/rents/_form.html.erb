@@ -31,8 +31,9 @@
           </div>
         </div>
         <div class="row">
-          <div class="field">
-              <%= form.text_field :address, id: :rent_address, placeholder: "Adress" %>
+          <div class="input-field">
+              <%= form.text_field :address, id: :rent_address %>
+              <label>Address</label>
           </div>          
         </div>
         <div class="row">
@@ -51,14 +52,16 @@
           </div>        
         </div>
         <div class="row">
-          <div class="field">
-            <%= form.text_field :rooms, id: :rent_rooms, placeholder:"Rooms" %>
+          <div class="input-field">
+            <%= form.text_field :rooms, id: :rent_rooms %>
+            <label>Rooms</label>
           </div>                  
         </div>
       
         <div class="row">
-          <div class="field">
-            <%= form.text_field :bathrooms, id: :rent_bathrooms, placeholder:"Bathooms" %>
+          <div class="input-field">
+            <%= form.text_field :bathrooms, id: :rent_bathrooms %>
+            <label>Bathrooms</label>
           </div>                  
         </div>
       
@@ -153,8 +156,9 @@
           <h6>Introduzca los datos para home</h6>
           <div class="row">
               
-                <div class="field">             
-                  <%= form.text_field :home, id: :rent_home, placeholder:"Home" %>
+                <div class="input-field">   
+                  <label>Home</label>
+                  <%= form.text_field :home, id: :rent_home %>
           </div> 
           <br>
           <br>
