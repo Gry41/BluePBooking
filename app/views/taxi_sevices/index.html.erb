@@ -97,6 +97,8 @@
 
     </div>
     <div class="col m6 s12">
+        <% unless user_signed_in? %>
+        
         <%= form_tag("/taxi_sevices/mail", :multipart=>true) do %>
         
           <div class="col s11">
@@ -159,6 +161,7 @@
           </div>
         
       <%end%>
+        <%end%>
     </div>
   </div>
   

@@ -141,6 +141,8 @@
 
   </div>
   <div class="col m6 s12">
+      <% unless user_signed_in? %>
+      
       <%= form_tag("/rents/mail", :multipart=>true) do %>
       <div class="container">
         <div class="col s11">
@@ -204,6 +206,7 @@
 
   
 <% end%>
+<%end%>
 <br>
 
 </div>
