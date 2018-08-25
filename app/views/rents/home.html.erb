@@ -102,11 +102,11 @@
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col s0 m3 l7"></div>
-                      <div class="col s12 m6 l4">
+                      <div class="col s2 m5 l10"></div>
+                      <div class="col s12 m2">
                         <%= submit_tag "Send", :class=>"waves-effect waves-light btn"%>
                       </div>
-                      <div class="col s0 m1 l1"></div>
+                      <div class="col s0 5m l0"></div>
                     </div>
                    <br>
                   </div>
@@ -251,8 +251,8 @@
                           </div>
                         </div>
                         <div class="row">
-                          <div class="col s3 m10"></div>
-                          <div class="col s2">
+                          <div class="col s3 m5 l10"></div>
+                          <div class="col s12 m7 l2">
                               <%= submit_tag "Send", :class=>"waves-effect waves-light btn"%>
                               
                           </div>
@@ -312,9 +312,9 @@
                     </div>
                     <div class="col s5">
                         <%if rent.rent_images.count>0%>
-                        <%=image_tag rent.rent_images.first.image.url, class:"image-responsive" ,style:"margin-top:3px; width:100%; max-height:100px"%>
+                        <%=image_tag rent.rent_images.first.image.url, class:"image-responsive" ,style:"margin-top:3px; width:100%; max-height:90px"%>
                         <%else%>
-                        <%=image_tag "logo.png", class:"image-responsive" ,style:"margin-top:10px; width:100%; max-height:300px"%>
+                        <%=image_tag "logo.png", class:"image-responsive" ,style:"margin-top:10px; width:100%; max-height:90px"%>
                         <%end%>
                       <div class="row">
                           <div class="col s6">
