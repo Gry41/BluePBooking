@@ -3,7 +3,7 @@
   <br>
   <% if user_signed_in? %>
   <div class="row">
-    <div class="col s4 m2">
+    <div class="col s4 m2 l1">
       
         <Strong>Add rent</Strong>
     </div>
@@ -125,7 +125,7 @@
                         <%end%>
                       </div>
                   <div class="col s6">
-                      <%= link_to 'Show', rent, class:"waves-effect waves-light btn", id: "btn-small" %>      
+                      <%= link_to 'Show', rent, class:"waves-effect waves-light btn", id: "btn-small", data: {turbolinks: false} %>      
                   </div>
                   
                   

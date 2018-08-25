@@ -29,7 +29,7 @@
             </div>
             <%end%>
             <div class="carousel-fixed-item center">
-                <%=link_to "Gallery" ,"/rents/gallery/"+@rent.id.to_s, class:"waves-effect waves-light btn"%>
+            <%=link_to "Gallery" ,"/rents/gallery/"+@rent.id.to_s, class:"waves-effect waves-light btn", data: {turbolinks:false}%>
                 </div>
           </div>
           

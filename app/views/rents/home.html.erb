@@ -30,7 +30,7 @@
                 <strong><%=rent.home%></strong>
                 <br>
                 <br>
-                <%= link_to 'Check here', rent_path(rent) ,class:"waves-effect waves-light btn half-out-button", style:"z-indx:9000" %>
+                <%= link_to 'Check here', rent_path(rent) ,class:"waves-effect waves-light btn half-out-button", style:"z-indx:9000", data: {turbolinks:false} %>
                 
               </div>
             </div>
@@ -323,7 +323,7 @@
                           <% end %>
                             </div>
                         <div class="col s6">
-                            <%= link_to 'Show', rent, class:"waves-effect waves-light btn", id: "btn-small" %>      
+                            <%= link_to 'Show', rent, class:"waves-effect waves-light btn", id: "btn-small", data: {turbolinks: false} %>      
                         </div>
                         
                         
