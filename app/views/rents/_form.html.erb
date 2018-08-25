@@ -22,7 +22,7 @@
     <div class="card">
         <br>
       <div class="container">
-          <h6>Introduzca los datos del alojamiento</h6>
+          <h6>Add rent data</h6>
         
         <div class="row">
           <div class="input-field">
@@ -37,14 +37,21 @@
           </div>          
         </div>
         <div class="row">
-          <label>Idioma con el que se comunica:</label>
+          <label>Languages:</label>
           <div class="field">
             
           <% i = 1 %>
           <% Language.all.each do |single|%>
           <% st = "rent_language_ids_"+ i.to_s %>
+          <% boo = @rent.languages.include? single%>
+          
           <div class="col s6">
+              <%if boo%>
+              <input id=<%=st %> name="rent[language_ids][]" checked="true" type="checkbox" value=<%=i%> class="filled-in" />
+              
+              <%else%>
           <input id=<%=st %> name="rent[language_ids][]" type="checkbox" value=<%=i%> class="filled-in" />
+          <%end%>
           <label for=<%=st%>><%= single.name%></label>
           <% i = i+1 %> 
           </div>
@@ -89,29 +96,43 @@
           </div>
         </div> 
         <div class="row">
-          <label>Servicios:</label>
+          <label>Services:</label>
           <div class="field">
           <% i = 1 %>
           <% Service.all.each do |single|%>
           <% st = "rent_service_ids_"+ i.to_s %>
+          <% boo = @rent.services.include? single %>
           <div class="col s12">
+          <%if boo%>
+            <input id=<%=st %> checked="true" name="rent[service_ids][]" type="checkbox" value=<%=i%> class="filled-in"/>
+          <%else%>
           <input id=<%=st %> name="rent[service_ids][]" type="checkbox" value=<%=i%> class="filled-in"/>
-          <label for=<%=st%>><%= single.name%></label>
+          
+          <%end%>
+            <label for=<%=st%>><%= single.name%></label>
           <% i = i+1 %> 
           </div>
          <% end%>
           </div>
         </div>
         <div class="row">
-          <label>Facilidades:</label>
+          <label>Facilities:</label>
         </div>
         <div class="row">
-         
+          
+          
           <% i = 1 %>
+          
           <% Facility.all.each do |single|%>
           <% st = "rent_facility_ids_"+ i.to_s %>
+          <% boo = @rent.facilities.include? single %>
           <div class="col s4">
-          <input id=<%=st %> name="rent[facility_ids][]" type="checkbox" value=<%=i%> class="filled-in" />
+            <%if boo%>
+          <input id=<%=st %> checked="true" name="rent[facility_ids][]" type="checkbox" value=<%=i%>  class="filled-in" />
+         <%else%>
+         <input id=<%=st %>  name="rent[facility_ids][]" type="checkbox" value=<%=i%>  class="filled-in" />
+         
+         <%end%>
           <label for=<%=st%>><%= single.name%></label>
           <% i = i+1 %> 
           </div>
