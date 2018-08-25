@@ -40,7 +40,7 @@
 <div class="row">
 <%index = 0%>
 <% @pictures.each do |image| %>
-    <div class="col s12 m2" id="<%=index%>">
+    <div class="col s12 m4 l2" id="<%=index%>">
         <% if user_signed_in? %>
              <!-- <%= link_to 'Destroy', "/rent_images/"+image.id.to_s,class:"btn waves-effect waves-light",id:"btn-small", method: :delete, data: { confirm: 'Are you sure?' } %> -->
              <% id_modal = "modal"+index.to_s%>
