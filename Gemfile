@@ -34,7 +34,7 @@ gem 'jbuilder', '~> 2.5'
 #gem 'rmagick'
 gem 'materialize-sass'
 # gem 'material-icons'
-
+gem 'jquery_mobile_rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -44,6 +44,7 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  
 end
 
 group :development do

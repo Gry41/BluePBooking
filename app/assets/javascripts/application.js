@@ -13,6 +13,7 @@
 //= require_tree .
 //= require jquery
 //= require jquery_ujs
+//= require jquery.mobile
 //= require rails-ujs
 //= require jquery.turbolinks
 //= require materialize-sprockets

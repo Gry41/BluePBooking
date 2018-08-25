@@ -17,6 +17,7 @@ $secondary-color: #059efa !default;
  *= require_tree .
  *= require_self
 *= require jquery-ui
+*= require jquery.mobile
  */
 .pagination li.active a{
  color:#059efa;
