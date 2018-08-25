@@ -1,4 +1,25 @@
 module ApplicationHelper
+    def PassFace
+        contact = Contact.all.each
+        if contact.count >= 3
+            b=contact.next
+            face_link = contact.next
+            return face_link.name
+        end
+        return ""
+    end
+    def PassInsta
+        contact = Contact.all.each
+        if contact.count >= 3
+        contact.next
+        contact.next 
+        insta_link = contact.next
+        return insta_link.name   
+        
+       end
+       return ""
+      end  
+    
     def class_navbar(text)
         
         puts request.path
