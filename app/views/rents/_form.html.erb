@@ -40,20 +40,22 @@
           <label>Languages:</label>
           <div class="field">
             
-          <% i = 1 %>
+         
           <% Language.all.each do |single|%>
+          <% i = single.id %>
           <% st = "rent_language_ids_"+ i.to_s %>
           <% boo = @rent.languages.include? single%>
           
           <div class="col s6">
               <%if boo%>
+              
               <input id=<%=st %> name="rent[language_ids][]" checked="true" type="checkbox" value=<%=i%> class="filled-in" />
               
               <%else%>
           <input id=<%=st %> name="rent[language_ids][]" type="checkbox" value=<%=i%> class="filled-in" />
           <%end%>
           <label for=<%=st%>><%= single.name%></label>
-          <% i = i+1 %> 
+         
           </div>
          <% end%>
           </div>        
@@ -98,8 +100,9 @@
         <div class="row">
           <label>Services:</label>
           <div class="field">
-          <% i = 1 %>
+         
           <% Service.all.each do |single|%>
+          <% i = single.id %>
           <% st = "rent_service_ids_"+ i.to_s %>
           <% boo = @rent.services.include? single %>
           <div class="col s12">
@@ -107,10 +110,10 @@
             <input id=<%=st %> checked="true" name="rent[service_ids][]" type="checkbox" value=<%=i%> class="filled-in"/>
           <%else%>
           <input id=<%=st %> name="rent[service_ids][]" type="checkbox" value=<%=i%> class="filled-in"/>
-          
+        
           <%end%>
             <label for=<%=st%>><%= single.name%></label>
-          <% i = i+1 %> 
+          
           </div>
          <% end%>
           </div>
@@ -121,9 +124,10 @@
         <div class="row">
           
           
-          <% i = 1 %>
+     
           
           <% Facility.all.each do |single|%>
+          <% i = single.id %>
           <% st = "rent_facility_ids_"+ i.to_s %>
           <% boo = @rent.facilities.include? single %>
           <div class="col s4">
