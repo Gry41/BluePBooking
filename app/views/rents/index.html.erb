@@ -108,11 +108,11 @@
         <div class="card" style="height:100px;">
            
             <div class="row">
-              <div class="col s7">
+              <div class="col l7 m5">
                   <div class="row">Name:</div>
                   <div class="row"><%= rent.name%></div>
               </div>
-              <div class="col s5">
+              <div class="col l5 m7">
                 <%if rent.rent_images.count>0%>
                 <%=image_tag rent.rent_images.first.image.url, class:"image-responsive" ,style:"margin-top:8px; width:100%; max-height:100%"%>
                 <%else%>
