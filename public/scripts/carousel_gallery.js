@@ -1,10 +1,10 @@
-$(document).ready(function(){
+// $(document).ready(function(){
       //  $('.carousel').carousel();
 
     $('.carousel.carousel-slider').carousel({
       fullWidth: true
    });
-});
+// });
 
 
 // var i = 0;
