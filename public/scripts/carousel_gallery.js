@@ -1,12 +1,13 @@
 // var i = 0;
-//   $(document).ready(function(){
-  
-    $('.carousel').carousel();
+   $(document).ready(function(){
+    
+    $('#CARO').carousel();
+    // $('.carousel').carousel();
 
-    $('.carousel.carousel-slider').carousel({
-      fullWidth: true,
-      indicators: false
-   });
+  //   $('.carousel.carousel-slider').carousel({
+  //     fullWidth: true,
+  //     indicators: false
+  //  });
 
 
    // move next carousel
@@ -24,7 +25,7 @@
    });
 
    
-  // });
+   });
   function Change(i){
     //    alert(i);
        $('.carousel').carousel('set', i);
