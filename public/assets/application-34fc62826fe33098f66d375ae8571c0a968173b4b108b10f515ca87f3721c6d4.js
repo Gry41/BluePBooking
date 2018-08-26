@@ -36328,7 +36328,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             view[0].addEventListener('touchstart', tap);
             view[0].addEventListener('touchmove', drag);
             view[0].addEventListener('touchend', release);
-          }
+		  }
+		  alert("TUTUTUuuu");
           view[0].addEventListener('mousedown', tap);
           view[0].addEventListener('mousemove', drag);
           view[0].addEventListener('mouseup', release);
