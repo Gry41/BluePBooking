@@ -1,44 +1,35 @@
-// $(document).ready(function(){
-      //  $('.carousel').carousel();
+var i = 0;
+  $(document).ready(function(){
+  
+    $('.carousel').carousel();
 
     $('.carousel.carousel-slider').carousel({
-      fullWidth: true
+      fullWidth: true,
+      indicators: false
    });
-// });
 
 
-// var i = 0;
-//   $(document).ready(function(){
-  
-//     $('.carousel').carousel();
+   // move next carousel
+   $('.moveNextCarousel').click(function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      i +=1;
+      $('.carousel').carousel('next');
+   });
 
-//     $('.carousel.carousel-slider').carousel({
-//       fullWidth: true,
-//       indicators: false
-//    });
-
-
-//    // move next carousel
-//    $('.moveNextCarousel').click(function(e){
-//       e.preventDefault();
-//       e.stopPropagation();
-//       i +=1;
-//       $('.carousel').carousel('next');
-//    });
-
-//    // move prev carousel
-//    $('.movePrevCarousel').click(function(e){
-//       e.preventDefault();
-//       e.stopPropagation();
-//       i -=1;
-//       $('.carousel').carousel('prev');
-//    });
+   // move prev carousel
+   $('.movePrevCarousel').click(function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      i -=1;
+      $('.carousel').carousel('prev');
+   });
 
    
-//   });
-//   function Change(i){
-//     //    alert(i);
-//        $('.carousel').carousel('set', i);
-//     //    alert("OK");
-//    }
+  });
+  function Change(i){
+    //    alert(i);
+       $('.carousel').carousel('set', i);
+    //    alert("OK");
+   }
    
