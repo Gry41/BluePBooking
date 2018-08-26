@@ -1,5 +1,7 @@
 var i = 0;
   $(document).ready(function(){
+
+
     // alert(typeof window.ontouchstart);
     $('.carousel').carousel();
 
@@ -7,7 +9,6 @@ var i = 0;
       fullWidth: true,
       indicators: false
    });
-
 
    // move next carousel
    $('.moveNextCarousel').click(function(e){
