@@ -109,14 +109,14 @@
            
             <div class="row">
               <div class="col l6 m5">
-                  <div class="row">Name:</div>
-                  <div class="row"><%= rent.name%></div>
+                  
+                  <div class="row"><%="Name: "+ rent.name%></div>
               </div>
               <div class="col l6 m7">
                 <%if rent.rent_images.count>0%>
-                <%=image_tag rent.rent_images.first.image.url, class:"image-responsive" ,style:"margin-top:8px; max-width:100%; max-height:85px"%>
+                <%=image_tag rent.rent_images.first.image.url, class:"image-responsive" ,style:"margin-top:8px; max-width:100%; max-height:65px"%>
                 <%else%>
-                <%=image_tag "logo.png", class:"image-responsive" ,style:"margin-top:10px; max-width:100%; max-height:85px"%>
+                <%=image_tag "logo.png", class:"image-responsive" ,style:"margin-top:10px; max-width:100%; max-height:65px"%>
                 <%end%>
                 <div class="row" style:"button:0px">
                     <div class="col s6">
