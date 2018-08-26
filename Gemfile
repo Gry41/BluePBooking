@@ -34,7 +34,7 @@ gem 'jbuilder', '~> 2.5'
 #gem 'rmagick'
 gem 'materialize-sass','~> 1.0.0.rc2'
 # gem 'material-icons'
-gem 'jquery_mobile_rails'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
