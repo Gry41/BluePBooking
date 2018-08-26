@@ -10,17 +10,17 @@ var i = 0;
 
    // move next carousel
    $('.moveNextCarousel').click(function(e){
-      // e.preventDefault();
-      // e.stopPropagation();
-      // i +=1;
+      e.preventDefault();
+      e.stopPropagation();
+      i +=1;
       $('.carousel').carousel('next');
    });
 
    // move prev carousel
    $('.movePrevCarousel').click(function(e){
-      // e.preventDefault();
-      // e.stopPropagation();
-      // i -=1;
+      e.preventDefault();
+      e.stopPropagation();
+      i -=1;
       $('.carousel').carousel('prev');
    });
 
