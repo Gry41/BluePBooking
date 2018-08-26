@@ -1,5 +1,5 @@
-var i = 0;
-  $(document).ready(function(){
+// var i = 0;
+//   $(document).ready(function(){
   
     $('.carousel').carousel();
 
@@ -13,7 +13,6 @@ var i = 0;
    $('.moveNextCarousel').click(function(e){
       e.preventDefault();
       e.stopPropagation();
-      i +=1;
       $('.carousel').carousel('next');
    });
 
@@ -21,12 +20,11 @@ var i = 0;
    $('.movePrevCarousel').click(function(e){
       e.preventDefault();
       e.stopPropagation();
-      i -=1;
       $('.carousel').carousel('prev');
    });
 
    
-  });
+  // });
   function Change(i){
     //    alert(i);
        $('.carousel').carousel('set', i);
