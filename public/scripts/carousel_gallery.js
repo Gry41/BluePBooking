@@ -1,6 +1,6 @@
 var i = 0;
   $(document).ready(function(){
-    alert(typeof window.ontouchstart);
+    // alert(typeof window.ontouchstart);
     $('.carousel').carousel();
 
     $('.carousel.carousel-slider').carousel({
