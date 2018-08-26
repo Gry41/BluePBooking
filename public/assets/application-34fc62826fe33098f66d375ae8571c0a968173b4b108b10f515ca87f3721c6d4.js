@@ -36525,7 +36525,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }
 
         function cycleTo(n) {
-          //var diff = center % count - n;
+          var diff = center % count - n;
 
           // Account for wraparound.
           if (!noWrap) {
