@@ -9,7 +9,7 @@
     <div class="container" >
     <div class="nav-wrapper"  >
       <%=image_tag "logo.png", style:"height:40px; margin-top:10px", class:"image responsive col s0"%>
-      <a href="#" data-target="mobile-menu" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
         <div id="myDIV">
           <li><a  href="/rents/home" onclick="Update(0)" class=<%=class_navbar('home')%>>Home</a></li>
@@ -19,12 +19,12 @@
           <li><a  href="/rules" data-turbolinks="false" onclick="Update(4)" class=<%=class_navbar('rule')%>>Rules</a></li>
           <li><a  href="/contacts" onclick="Update(5)" class=<%=class_navbar('contact')%>>Contact</a></li>
           <% if user_signed_in? %>
-          <li><a class="dropdown-trigger colors a" data-target="dropdown1">User<i class="material-icons right">arrow_drop_down</i></a></li>
+          <li><a class="dropdown-trigger colors a" data-activates="dropdown1">User<i class="material-icons right">arrow_drop_down</i></a></li>
           
         <%end%>
         </div>
       </ul>
-      <ul class="sidenav" id="mobile-menu">
+      <ul class="side-nav" id="mobile-menu">
         <li><a  href="/rents/home" onclick="Update(0)" class=<%=class_navbar('home')%>>Home</a></li>
         <li><a  href="/rents" onclick="Update(1)" class=<%=class_navbar('rent')%>>Houses</a></li>
         <li><a  href="/taxi_sevices" data-turbolinks="false" onclick="Update(2)" class=<%=class_navbar('taxi')%>>Taxis</a></li>
@@ -56,7 +56,7 @@
   <script>
     $(document).ready(function(){
      $('.dropdown-trigger').dropdown();
-     $(".sidenav").sidenav();
+     $(".button-collapse").sideNav();
     });
    
 

@@ -32,7 +32,7 @@ gem 'jbuilder', '~> 2.5'
 
 # For this project
 #gem 'rmagick'
-gem 'materialize-sass','~> 1.0.0.rc2'
+gem 'materialize-sass','~> 0.100.2'
 # gem 'material-icons'
 
 # Use Capistrano for deployment
