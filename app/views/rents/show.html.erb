@@ -1,36 +1,32 @@
 <%if @rent.rent_images.count>0%>
+<script type="text/javascript">
+  jQuery(document).ready(function(){
+    jQuery('#demo1').skdslider({delay:5000, animationSpeed: 1000,showNextPrev:true,showPlayButton:true,autoSlide:true,animationType:'fading'});
+    
+  });
+</script>
+
+
 <div class="">
         
-          <div class="carousel carousel-slider center ">
-            
-            <div class="carousel-fixed-item center middle-indicator">
-
-             <div class="left">
-              <a href="Previo" class="movePrevCarousel middle-indicator-text waves-effect waves-light content-indicator"><i class="material-icons left  middle-indicator-text">chevron_left</i></a>
-             </div>
-             
-             <div class="right">
-             <a href="Siguiente" class=" moveNextCarousel middle-indicator-text waves-effect waves-light content-indicator"><i class="material-icons right middle-indicator-text">chevron_right</i></a>
-             </div>
-            </div>
-            
+          <div class="skdslider">
+              <ul id="demo1" class="slides">
            <%id = "div_relative"%>
            <%@rent.rent_images.each do |rent|%>
-          
-            <div class="carousel-item red" href="#one!" id=<%=id%>>
-            <div id="div_absolute">
-              <center>
+            <li>
                 <%= image_tag  rent.image.url, id: "image100", class:"image responsive"%>   
-              </center>
-            </div>
-            <%id = ""%>
             
+            <div id="slid-desc">
+              <center>
+                  <%=link_to "Gallery" ,"/rents/gallery/"+@rent.id.to_s, class:"waves-effect waves-light btn", data: {turbolinks:false}%>
+                  
                    
+              </center>
+                 
             </div>
+            </li>
             <%end%>
-            <div class="carousel-fixed-item center">
-            <%=link_to "Gallery" ,"/rents/gallery/"+@rent.id.to_s, class:"waves-effect waves-light btn", data: {turbolinks:false}%>
-                </div>
+              </ul>
           </div>
           
         </div>
