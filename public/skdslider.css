@@ -3,10 +3,12 @@
  position: relative;
  display: block;
  overflow:hidden;
+background-color: white;
  height:450px;
 }
 
-.skdslider ul.slides{ margin:0; padding:0; list-style-type:none;}
+.skdslider ul.slides{ margin:0; padding:0; list-style-type:none;
+background-color: white;}
 .skdslider ul.slides li
 {
    display: none;
