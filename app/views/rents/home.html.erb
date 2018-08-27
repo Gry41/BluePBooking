@@ -1,8 +1,8 @@
 <script type="text/javascript">
-  jQuery(document).ready(function(){
-    jQuery('#demo1').skdslider({delay:5000, animationSpeed: 1000,showNextPrev:true,showPlayButton:true,autoSlide:true,animationType:'fading'});
-    
-  });
+		jQuery(document).ready(function(){
+			jQuery('#demo1').skdslider({delay:5000, animationSpeed: 1000,showNextPrev:true,showPlayButton:true,autoSlide:true,animationType:'fading'});
+			
+		});
 </script>
 
 
@@ -19,10 +19,15 @@
            <%@rents.each do |rent|%>
            <%if rent.rent_images.count>0%>
            <li> 
-              <%= image_tag  rent.rent_images.first.image.url, id: "image100", class:"image responsive"%>        
-           <div class="slide-desc">
-            
-            
+             
+           <div class="slide-desc" href="#one!" id="div_relative">
+            <div id="div_absolute">
+              <center>
+                  <%= image_tag  rent.rent_images.first.image.url, id: "image100", class:"image responsive"%> 
+              </center>
+            </div>
+            <%id = ""%>
+            <div id="div2" style="position:absolute; top:0; left:0;">
               <div class="card overlap-header" id="floating_card">
                 <br>
                 <strong><%=rent.home%></strong>
@@ -31,7 +36,7 @@
                 <%= link_to 'Check here', rent_path(rent) ,class:"waves-effect waves-light btn half-out-button", style:"z-indx:9000", data: {turbolinks:false} %>
                 
               </div>
-           
+            </div>
                    
             </div>
           </li>
