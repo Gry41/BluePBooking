@@ -19,7 +19,7 @@
            <%@rents.each do |rent|%>
            <%if rent.rent_images.count>0%>
            <li> 
-              <%= image_tag  rent.rent_images.first.image.url%> 
+              <%= image_tag  rent.rent_images.first.image.url, id:"image100", class:"image respinsive"%> 
            
           </li>
             <%end%><%end%>
