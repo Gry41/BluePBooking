@@ -1,4 +1,90 @@
 
+
+<link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+<script src="http://code.jquery.com/jquery.js"></script>
+<script src="scripts/skdslider.min.js"></script>
+<link href="/skdslider.css" rel="stylesheet">
+<script type="text/javascript">
+		jQuery(document).ready(function(){
+			jQuery('#demo1').skdslider({delay:5000, animationSpeed: 2000,showNextPrev:true,showPlayButton:true,autoSlide:true,animationType:'fading'});
+			jQuery('#demo2').skdslider({delay:5000, animationSpeed: 1000,showNextPrev:true,showPlayButton:false,autoSlide:true,animationType:'sliding'});
+			jQuery('#demo3').skdslider({delay:5000, animationSpeed: 2000,showNextPrev:true,showPlayButton:true,autoSlide:true,animationType:'fading'});
+			
+			jQuery('#responsive').change(function(){
+			  $('#responsive_wrapper').width(jQuery(this).val());
+			  $(window).trigger('resize');
+			});
+			
+		});
+</script>
+<style type="text/css">
+body{ margin:0; padding:0;}
+.demo-code{ background-color:#ffffff; border:1px solid #333333; display:block; padding:10px;}
+.option-table td{ border-bottom:1px solid #eeeeee;}
+</style>
+
+<h1>jQuery SKDSlider Plugin Examples</h1>
+<div class="jquery-script-ads"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-2783044520727903";
+/* jQuery_demo */
+google_ad_slot = "2780937993";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<h4>Full Width Demo:</h4>
+<div class="skdslider">
+    <ul id="demo1" class="slides">
+<li>
+<img src="https://unsplash.it/1520/592?image=633" />
+<!--Slider Description example-->
+ <div class="slide-desc">
+		<h2>Slider Title 1</h2>
+		<p>Demo description here. Demo description here. Demo description here. Demo description here. Demo description here. <a class="more" href="#">more</a></p>
+  </div>
+</li>
+<li><img src="https://unsplash.it/1520/592?image=630" />
+   <div class="slide-desc">
+		<h2>Slider Title 2</h2>
+		<p>Demo description here. Demo description here. Demo description here. Demo description here. Demo description here. <a class="more" href="#">more</a></p>
+  </div>
+</li>
+<li><img src="https://unsplash.it/1520/592?image=628" />
+<!--NO Description Here-->
+</li>
+<li><img src="slides/4.jpg" />
+  <div class="slide-desc">
+		<h2>Slider Title 4</h2>
+		<p>Demo description here. Demo description here. Demo description here. Demo description here. Demo description here. <a class="more" href="#">more</a></p>
+  </div>
+</li>
+<li><img src="https://unsplash.it/1520/592?image=619" /></li>
+<li><img src="https://unsplash.it/1520/592?image=646" />
+  <div class="slide-desc">
+		<h2>Slider Title 6</h2>
+		<p>Demo description here. Demo description here. Demo description here. Demo description here. Demo description here. <a class="more" href="#">more</a></p>
+  </div>
+</li>
+</ul>
+</div>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
 <div class="container">
   <br>
   <% if user_signed_in? %>
