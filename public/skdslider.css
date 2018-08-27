@@ -86,7 +86,7 @@ text-decoration:underline;
 }
 
 .skdslider a.next{
-    background: url("image/right.png") no-repeat scroll 0 0 transparent;
+    background-color: black;
 	width:35px;
 	height:35px;
 	display:block;
