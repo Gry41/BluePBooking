@@ -1,4 +1,8 @@
   $(document).ready(function(){
+
+    alert("prueba");
+    $.skdslider.set();
+
     $('.carousel').carousel();
  
     $('.carousel.carousel-slider').carousel({
