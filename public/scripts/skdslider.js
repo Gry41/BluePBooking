@@ -218,8 +218,8 @@
 
     };
 
-    $.skdslider.set = function () {
-        alert("Entro");
+    $.skdslider.set = function (i) {
+        config.currentSlide = i;
     }
 
     $.skdslider.next = function (element, slides, config) {

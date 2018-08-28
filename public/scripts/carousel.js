@@ -1,7 +1,8 @@
   $(document).ready(function(){
 
     alert("prueba");
-    $.skdslider.set();
+    $.skdslider.config.currentSlide = 2;
+    alert($.skdslider.config.currentSlide);
 
     $('.carousel').carousel();
  
