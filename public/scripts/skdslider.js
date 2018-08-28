@@ -219,6 +219,9 @@
     };
 
     $.skdslider.next = function (element, slides, config) {
+        alert(element);
+        alert(slides);
+        alert(config);
         if ((config.currentSlide + 1) == slides.length) targetSlide = 0;
         else targetSlide = (config.currentSlide + 1);
 
