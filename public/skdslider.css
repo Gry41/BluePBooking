@@ -74,11 +74,7 @@ height: 100%;
     line-height: 20px;
     margin-top: 5px;
 }
-.skdslider .slide-desc > p a.more {
-    color:#990000;
-	font-size:20px;
-	text-decoration:none;
-}
+
 .skdslider .slide-desc > p a.more:hover {
 text-decoration:underline;
 }
