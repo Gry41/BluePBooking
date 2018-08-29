@@ -35,6 +35,19 @@
         var element = $(container).closest('div.skdslider');
         element.find('ul').addClass('slides');
         var slides = element.find('ul.slides li');
+        var previews = document.getElementsByClassName('preview');
+        var i = 0;
+        function createfunc(i) {
+            return function() {
+                
+                 $.skdslider.set(element, slides, config, i);
+            };
+        }
+        for (i = 0; i < previews.length; i++) {
+            singlepreview =previews[i];
+            
+            singlepreview.onclick= createfunc(i);
+        }
 		 var imageWidth = element.find('ul.slides li:first-child img')[0].naturalWidth || element.find('ul.slides li:first-child img')[0].width;
 		 var imageHeight = element.find('ul.slides li:first-child img')[0].naturalHeight || element.find('ul.slides li:first-child img')[0].height;
 		 
@@ -135,6 +148,7 @@
             });
         }
     };
+    
 
     $.skdslider.createNav = function (element, slides, config) {
 
@@ -218,14 +232,10 @@
 
     };
 
-    $.skdslider.set = function (i) {
-        config.currentSlide = i;
-    }
+    
 
     $.skdslider.next = function (element, slides, config) {
-        // alert(element);
-        // alert(slides);
-        // alert(config);
+        
         if ((config.currentSlide + 1) == slides.length) targetSlide = 0;
         else targetSlide = (config.currentSlide + 1);
 
@@ -246,10 +256,9 @@
         return true;
     }
 
-    $.skdslider.prev = function (element, slides, config) {
-        if (config.currentSlide == 0) targetSlide = (slides.length - 1);
-        else targetSlide = (config.currentSlide - 1);
-
+    $.skdslider.set = function (element, slides, config,i) {
+        
+        targetSlide = i;
         clearTimeout(config.interval);
         config.currentState = 'play';
         config.running = false;

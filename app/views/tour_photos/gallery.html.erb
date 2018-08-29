@@ -1,39 +1,30 @@
-<div class="carousel carousel-slider center" data-indicators="true">
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+        jQuery('#demo1').skdslider({delay:5000, animationSpeed: 1000,showNextPrev:true,showPlayButton:true,autoSlide:true,animationType:'fading'});
+        
+    });
+  </script>
+<div class="skdslider">
+    <ul id="demo1" class="slides">
     
-    <% if @pictures.count > 0 %>
-    <div class="carousel-item" id="div_relative" href="#one!">
-        <%= image_tag @pictures.first.image.url,id: "image100", class:"image responsive"%>
-    </div>
-    <% else %>
-    
-    <div class="carousel-item" id="div_relative" href="#one!">
-        <%= image_tag "/assets/user-ba13cb8c158d58f197e22f0311a815c2dde80b46c8a95a1de199020941be2c89.png",id: "image100", class:"image responsive"%>
-    </div>
-    
+    <% if @pictures.count == 0 %>
+    <li>
+     <%= image_tag "/assets/user-ba13cb8c158d58f197e22f0311a815c2dde80b46c8a95a1de199020941be2c89.png",id: "image100", class:"image responsive"%>       
+    </li>
     <% end %>
 
-    <div class="carousel-fixed-item center middle-indicator">
-        <div class="left">
-        <a href="Previo" class="movePrevCarousel middle-indicator-text waves-effect waves-light content-indicator"><i class="material-icons left  middle-indicator-text">chevron_left</i></a>
-        </div>
-        
-        <div class="right">
-        <a href="Siguiente" class=" moveNextCarousel middle-indicator-text waves-effect waves-light content-indicator"><i class="material-icons right middle-indicator-text">chevron_right</i></a>
-        </div>
-    </div>
-    <%id = 0%>
+    
+    
     <% @pictures.each do |image| %>
-        <% if id > 0 %>
-        <div class="carousel-item" href="#one!">
+       
+        <li>
                 
             <%= image_tag image.image.url,id: "image100", class:"image responsive "%>
-            
-        </div>
-        <% else %>
-            <%id = 1%>   
-        <% end %>
+        </li>
+       
+        
     <% end %>
-
+</ul>
 </div>
 
 <br>
@@ -58,7 +49,7 @@
                 </div>
             </div>
         <% end %>
-         <div onclick="Change(<%=index%>)">
+         <div class="preview">
             <%= image_tag image.image.url, :style => "object-fit:cover; width:200px; height:200px;"%>
         </div>
         <%index += 1%>
@@ -105,11 +96,6 @@
           height: 100%;
       }
       #image100{
-        position: absolute;
-        width: 100%;
-        height:100%;
-        top: 0px;
-        left: 0px;
         object-fit:contain;
       }
       #div_absolute {
