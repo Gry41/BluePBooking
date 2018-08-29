@@ -62,8 +62,7 @@ gem 'paperclip-watermark'
 gem 'will_paginate'
 gem 'will_paginate-materialize'
 gem 'rails_12factor', group: :production
-gem 'imgurapi'
-gem 'paperclip-imgur'
+gem 'cloudinary'
 # gem 'jquery-ui-rails'
 # gem 'jquery-modal-rails'
 ruby "2.3.3"

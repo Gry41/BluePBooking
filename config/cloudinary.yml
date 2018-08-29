@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: bluepbooking
+  api_key: '741816441293829'
+  api_secret: A75Um4j3Q123KUQSjtb9NQAA1mA
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: bluepbooking
+  api_key: '741816441293829'
+  api_secret: A75Um4j3Q123KUQSjtb9NQAA1mA
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: bluepbooking
+  api_key: '741816441293829'
+  api_secret: A75Um4j3Q123KUQSjtb9NQAA1mA
+  enhance_image_tag: true
+  static_image_support: false
