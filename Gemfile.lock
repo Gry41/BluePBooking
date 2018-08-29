@@ -72,11 +72,15 @@ GEM
       warden (~> 1.2.3)
     erubi (1.7.1)
     execjs (2.7.0)
+    faraday (0.15.2)
+      multipart-post (>= 1.2, < 3)
     ffi (1.9.25-x86-mingw32)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     i18n (1.0.1)
       concurrent-ruby (~> 1.0)
+    imgurapi (3.2.2)
+      faraday
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
@@ -103,6 +107,7 @@ GEM
     mini_portile2 (2.3.0)
     minitest (5.11.3)
     multi_json (1.13.1)
+    multipart-post (2.0.0)
     nio4r (2.3.1)
     nokogiri (1.8.3-x86-mingw32)
       mini_portile2 (~> 2.3.0)
@@ -113,6 +118,8 @@ GEM
       mime-types
       mimemagic (~> 0.3.0)
       terrapin (~> 0.6.0)
+    paperclip-imgur (0.2.0)
+      imgurapi (>= 3.2.1)
     paperclip-watermark (1.0.0)
       paperclip (>= 2.3.8)
     pg (1.0.0-x86-mingw32)
@@ -215,11 +222,13 @@ DEPENDENCIES
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
   devise
+  imgurapi
   jbuilder (~> 2.5)
   jquery-rails
   jquery-turbolinks
   materialize-sass (~> 0.100.2)
   paperclip
+  paperclip-imgur
   paperclip-watermark
   pg
   puma (~> 3.7)
