@@ -271,6 +271,7 @@
 
             element.find('.slide-navs li').removeClass('current-slide');
             if (typeof (targetSlide) == 'undefined') {
+                alert("undeffff");
                 targetSlide = (config.currentSlide + 1 == slides.length) ? 0 : config.currentSlide + 1;
             }
             if (config.animationType == 'fading') {
