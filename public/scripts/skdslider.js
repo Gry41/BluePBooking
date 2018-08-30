@@ -36,16 +36,15 @@
         element.find('ul').addClass('slides');
         var slides = element.find('ul.slides li');
         var previews = document.getElementsByClassName('preview');
-        var i = 0;
+        
         function createfunc(i) {
             return function() {
-                
+                 alert(i);
                  $.skdslider.set(element, slides, config, i);
             };
         }
         for (i = 0; i < previews.length; i++) {
             singlepreview =previews[i];
-            
             singlepreview.onclick= createfunc(i);
         }
 		 var imageWidth = element.find('ul.slides li:first-child img')[0].naturalWidth || element.find('ul.slides li:first-child img')[0].width;
