@@ -4,28 +4,8 @@ class ContactsController < ApplicationController
   # GET /contacts
   # GET /contacts.json
   def index
-    @contacts = Contact.all
-    contacts = []
-    contacts.each do |single|
-      @contacts.push(single)
-      
-    end
-    puts("dddddddddddddddddddddddddddddddddddddddddddsssssssssssssssssss")
-    puts contacts
-    @contacts.each do |single|
-      if single.name.include? "facebook.com"
-       
-        contacts.insert(1,single)
+    @contacts = Contact.all.order("id")
      
-      elsif single.name.include? "instagram.com" 
-        
-        contacts.insert(2,single)
-     
-      else 
-        contacts.insert(0,single)  
-      end  
-    end
-    @contacts = contacts 
   end
 
   # GET /contacts/1
