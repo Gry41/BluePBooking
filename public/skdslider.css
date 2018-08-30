@@ -80,12 +80,11 @@ text-decoration:underline;
 }
 #image100{
 	position: absolute;
-	width: 100%;
-	height:100%;
+	max-width: 100%;
+	max-height:450px;
 	top: 0px;
 	left: 0px;
 	object-fit: contain;
-   
   }
 .skdslider a.prev{
     background: url("/assets/left-92bbfac49a77699098491e5f69b56f44036002c183f87da7bb3b060aab2493f8.png") no-repeat scroll 0 0 transparent;
