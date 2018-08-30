@@ -80,7 +80,7 @@ text-decoration:underline;
 }
 #image100{
 	
-	object-fit: cover;
+	object-fit: contain;
 	position: absolute;
 	   
 	
