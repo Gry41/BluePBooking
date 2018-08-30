@@ -47,12 +47,23 @@
   overflow: auto;
   height: 100%;
  }
-    #btn-small {
+ @media (max-width: 601px) {
+   
+      #btn-small {
+    height: 10px;
+    line-height: 10px;
+    font-size: 8px;
+    padding: 0 0.2rem;
+    }
+}
+@media(min-width:602px){
+  #btn-small {
       height: 15px;
       line-height: 15px;
       font-size: 9px;
       padding: 0 0.2rem;
-      }
+      } 
+}   
     #btn-circular{
       height: 40px;
       width: 40px;
