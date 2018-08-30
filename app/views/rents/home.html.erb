@@ -205,6 +205,11 @@
                <div class="row">    
              <% i = 0%>
               <% @rents.each do |rent| %>
+              <% if i== 0 %>
+               </div>
+               <div class="row">
+                 <% i = i+1%>
+               <%end%>
               <div class="col s12 l3 m4">
               <div class="card" style="height:100px;">
                  
