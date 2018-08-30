@@ -19,7 +19,7 @@ class ContactsController < ApplicationController
       elsif single.name.include? "instagram.com" && contacts.count>2
         @contacts[2]=single 
       else 
-        contacts[0]=single   
+        @contacts[0]=single   
       end  
     end
     
