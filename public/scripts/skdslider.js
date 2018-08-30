@@ -39,7 +39,7 @@
         
         function createfunc(i) {
             return function() {
-                 alert(i);
+                
                  $.skdslider.set(element, slides, config, i);
             };
         }
@@ -266,12 +266,12 @@
     }
 
     $.skdslider.playSlide = function (element, slides, config, targetSlide) {
-
+       
         if (config.currentState == 'play' && config.running == false) {
 
             element.find('.slide-navs li').removeClass('current-slide');
             if (typeof (targetSlide) == 'undefined') {
-                alert("undeffff");
+               
                 targetSlide = (config.currentSlide + 1 == slides.length) ? 0 : config.currentSlide + 1;
             }
             if (config.animationType == 'fading') {
