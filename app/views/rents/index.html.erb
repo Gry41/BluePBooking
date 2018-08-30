@@ -103,9 +103,18 @@
             <strong>Our top destination</strong>
             <br>
              </div>
-       <% i = 0%>
+             <div class="row">    
+                <% i = 0%>
+                 <% @rents.each do |rent| %>
+                 <% if i%4 == 0 %>
+                  </div>
+                  <div class="row">
+                   
+                 
+                  <%end%>
+                  <% i = i+1%>
         <% @rents.each do |rent| %>
-        <div class="col s12 m4 l3">
+        <div class="col s12 m6 l3">
         <div class="card" style="height:100px;">
            
             <div class="row">
@@ -139,7 +148,7 @@
         </div>
       </div>
         <% end %>
-
+                  </div>
       </div>
     </div>
   
