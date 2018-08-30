@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/500', to: 'rents#home'
   resources :contacts
   resources :tour_services
 root :to => 'rents#home'
