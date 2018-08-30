@@ -11,14 +11,14 @@ class ContactsController < ApplicationController
     end
     contacts.each do |single|
       if single.name.include? "facebook.com" && contacts.count>1 
-        @contacts[1]= single
+        @contacts.insert(1,single)
       elsif single.name.include? "instagram.com" && contacts.count>2
-        @contacts[2]=single 
+        @contacts.insert(2,single)
       else 
-        @contacts[0]=single   
+        @contacts.insert(0,single)  
       end  
     end
-    
+
   end
 
   # GET /contacts/1
