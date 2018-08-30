@@ -11,17 +11,15 @@
             <%= image_tag @pictures.first.image.url,id: "image100", class:"image responsive"%>
       </li>
 
-    <%id = 0%>
+    
     <% @pictures.each do |image| %>
-        <% if id > 0 %>
+        
         <li>
                 
             <%= image_tag image.image.url,id: "image100", class:"image responsive "%>
         </li>
 
-        <% else %>
-            <%id = 1%>   
-        <% end %>
+        
     <% end %>
 </ul>
 
