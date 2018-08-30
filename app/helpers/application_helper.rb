@@ -1,6 +1,6 @@
 module ApplicationHelper
     def PassFace
-        contact = Contact.all.each
+        contact = Contact.all.order("id").each
         if contact.count >= 3
             b=contact.next
             face_link = contact.next
@@ -9,7 +9,7 @@ module ApplicationHelper
         return ""
     end
     def PassInsta
-        contact = Contact.all.each
+        contact = Contact.all.order("id").each
         if contact.count >= 3
         contact.next
         contact.next 
