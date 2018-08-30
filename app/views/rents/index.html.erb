@@ -103,42 +103,51 @@
             <strong>Our top destination</strong>
             <br>
              </div>
-       <% i = 0%>
-        <% @rents.each do |rent| %>
-        <div class="col s12 m4 l3">
-        <div class="card" style="height:100px;">
-           
-            <div class="row">
-              <div class="col l6 m5 s6">
-                  
-                  <div class="row"><%="Name: "+ rent.name%></div>
+       
+       <div class="row">
+          <% i = 0%>
+          <% if i%4==0%>
               </div>
-              <div class="col l6 m7 s6">
-                <%if rent.rent_images.count>0%>
-                <%=image_tag rent.rent_images.first.image.url, class:"image-responsive" ,style:"margin-top:8px; max-width:100%; max-height:65px"%>
-                <%else%>
-                <%=image_tag "logo.png", class:"image-responsive" ,style:"margin-top:10px; max-width:100%; max-height:65px"%>
-                <%end%>
-                <div class="row" style:"button:0px">
-                    <div class="col s6">
-                        <% if user_signed_in? %>
-                        <%= link_to 'Edit', edit_rent_path(rent), class:"waves-effect waves-light btn", id: "btn-small" %>      
-                        <%end%>
-                      </div>
-                  <div class="col s6">
-                      <%= link_to 'Show', rent, class:"waves-effect waves-light btn", id: "btn-small", data: {turbolinks: false} %>      
-                  </div>
-                  
-                  
-                
+              <div class="row">
+          <%end%>
+          <% i = i+1%>
+          <% @rents.each do |rent| %>
+          <div class="col s12 m4 l3">
+          <div class="card" style="height:100px;">
+             
+              <div class="row">
+                <div class="col l6 m5 s6">
+                    
+                    <div class="row"><%="Name: "+ rent.name%></div>
                 </div>
-                     </div>
-            </div>
+                <div class="col l6 m7 s6">
+                  <%if rent.rent_images.count>0%>
+                  <%=image_tag rent.rent_images.first.image.url, class:"image-responsive" ,style:"margin-top:8px; max-width:100%; max-height:65px"%>
+                  <%else%>
+                  <%=image_tag "logo.png", class:"image-responsive" ,style:"margin-top:10px; max-width:100%; max-height:65px"%>
+                  <%end%>
+                  <div class="row" style:"button:0px">
+                      <div class="col s6">
+                          <% if user_signed_in? %>
+                          <%= link_to 'Edit', edit_rent_path(rent), class:"waves-effect waves-light btn", id: "btn-small" %>      
+                          <%end%>
+                        </div>
+                    <div class="col s6">
+                        <%= link_to 'Show', rent, class:"waves-effect waves-light btn", id: "btn-small", data: {turbolinks: false} %>      
+                    </div>
+                    
+                    
+                  
+                  </div>
+                       </div>
+              </div>
+              
             
-          
+          </div>
         </div>
-      </div>
-        <% end %>
+          <% end %>
+       </div>
+        
 
       </div>
     </div>
