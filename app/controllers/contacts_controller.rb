@@ -4,14 +4,10 @@ class ContactsController < ApplicationController
   # GET /contacts
   # GET /contacts.json
   def index
-    contacts = Contact.all
-    
-    
-    @contacts = [""]
-    if contacts.count == 2
-      @contacts = ["",""]
-    elsif contacts.count == 3
-      @contacts = ["","",""]
+    @contacts = Contact.all
+    contacts = []
+    @contacts.each do |single|
+      contacts.push(single)
     end
     contacts.each do |single|
       if single.name.include? "facebook.com" && contacts.count>1 
@@ -23,7 +19,6 @@ class ContactsController < ApplicationController
       end  
     end
     
-
   end
 
   # GET /contacts/1
