@@ -93,7 +93,7 @@ text-decoration:underline;
 	display:block;
 	cursor:pointer;
 	position:absolute;
-	top:50%;
+	top:220%;
 	left:2%;
 	margin-top:-17px;
 }
@@ -105,7 +105,7 @@ text-decoration:underline;
 	display:block;
 	cursor:pointer;
 	position:absolute;
-	top:200px;
+	top:220px;
 	right:2%;
 	margin-top:-17px;
 }
