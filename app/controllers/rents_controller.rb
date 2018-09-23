@@ -29,9 +29,13 @@ class RentsController < ApplicationController
   def mail_us
     inf = params[:information]
     mail = inf
-
+    puts "mail usssssss beforee "
     SendUsMailer.us_email(mail).deliver_now
-    redirect_to action:"home"
+    puts "afterrrrrrrrrrrrrrrrrrrrrrrrrrrr"
+    @rnt = Rent.new
+    @rents = Rent.order('visits DESC') 
+    @rents = @rents.limit(8)
+    render 'home.html.erb'
   end
   def gallery
     @pictures = Rent.find(params[:id]).rent_images

@@ -6,6 +6,6 @@ class MailerMailer < ApplicationMailer
        @mail = mail
        puts mail
        puts "ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
-       mail(to: 'greidy.valdes@gmail.com', subject: 'Request')
+       mail(to: 'greidy.valdes@gmail.com', subject: 'Rent Request')
     end
 end

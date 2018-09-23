@@ -3,6 +3,6 @@ class SendUsMailer < ApplicationMailer
         @url  = 'http://www.gmail.com'
         @mail = mail
         
-        mail(to: 'greidy.valdes@gmail.com', subject: 'Request')
+        mail(to: 'greidy.valdes@gmail.com', subject: 'Mail')
      end
 end
