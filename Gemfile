@@ -64,6 +64,7 @@ gem 'will_paginate-materialize'
 gem 'rails_12factor', group: :production
 gem 'cloudinary'
 gem 'paperclip-cloudinary'
+gem 'metamagic'
 # gem 'jquery-ui-rails'
 # gem 'jquery-modal-rails'
 ruby "2.3.3"
